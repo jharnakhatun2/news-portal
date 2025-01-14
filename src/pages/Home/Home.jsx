@@ -1,9 +1,13 @@
 import React from "react"
+import Header from "../../components/Header/Header";
+import Navbar from "../../components/Navbar/Navbar";
 
 const Home = () => {
   return (
     <div>
-      <p className="font-poppins">Hello</p>
+      <Header/>
+      <Navbar/>
+      <p className="font-poppins">Home</p>
     </div>
   )
 };
