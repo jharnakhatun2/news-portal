@@ -5,8 +5,8 @@ import SmallHeader from "./SmallHeader";
 const Header = () => {
   return (
     <>
-    <LargeHeader/>
-    <SmallHeader/>
+    <LargeHeader />
+    <SmallHeader />
     </>
   )
 };
