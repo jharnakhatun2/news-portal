@@ -1,10 +1,13 @@
 import React from "react"
+import LargeNav from "./LargeNav";
+import SmallNav from "./SmallNav";
 
 const Navbar = () => {
   return (
-    <div>
-      <h1>Nav</h1>
-    </div>
+    <>
+    <LargeNav/>
+    <SmallNav/>
+    </>
   )
 };
 

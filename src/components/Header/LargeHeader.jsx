@@ -11,7 +11,7 @@ const LargeHeader = () => {
                         <small>{moment().format('dddd MMMM D, YYYY')}</small><br />
                         <small>Today's Paper</small>
                     </div>
-
+                    
                     <img src="/logo.png" alt="logo" className="w-2/5 h-auto" />
                     <button className="bg-slate-400 px-4 py-1 text-white text-xs rounded-sm">LOG IN</button>
 
