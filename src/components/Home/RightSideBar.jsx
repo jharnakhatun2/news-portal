@@ -1,5 +1,6 @@
 import React from "react"
 import Border from "../../util/Border/Border";
+import SliderOne from "./SliderOne";
 
 const RightSideBar = () => {
   return (
@@ -17,6 +18,7 @@ const RightSideBar = () => {
       </div>
       <div className="divider"></div>
       {/* 2nd rows */}
+      <SliderOne/>
 
     </div>
   )
