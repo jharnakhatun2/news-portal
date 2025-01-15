@@ -2,11 +2,11 @@ import React from "react"
 import LargeHeader from "./LargeHeader";
 import SmallHeader from "./SmallHeader";
 
-const Header = () => {
+const Header = ({onToggleMenu}) => {
   return (
     <>
     <LargeHeader />
-    <SmallHeader />
+    <SmallHeader onToggleMenu={onToggleMenu}/>
     </>
   )
 };

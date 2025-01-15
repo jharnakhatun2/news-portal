@@ -1,18 +1,18 @@
 import React from "react"
 
-const LargeNav = () => {
+const LargeNav = ({categoryData}) => {
+
     return (
         <nav className="border-double border-b-4 hidden lg:block">
             <ul className="flex justify-between text-sm py-3">
-                <li>National News</li>
-                <li>Breaking News</li>
-                <li>Regular News</li>
-                <li>International News</li>
-                <li>Sports</li>
-                <li>Entertainment</li>
-                <li>Culture</li>
-                <li>Arts</li>
-                <li></li>
+            {categoryData?.map((item) => (
+          <li
+            key={item.id}
+            className=" cursor-pointer"
+          >
+            {item.name}
+          </li>
+        ))}
                 </ul>
         </nav>
     )

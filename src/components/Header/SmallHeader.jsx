@@ -1,11 +1,11 @@
 import moment from "moment";
 import React from "react"
 
-const SmallHeader = () => {
+const SmallHeader = ({onToggleMenu}) => {
     return (
         <><div className="block lg:hidden">
             <div className="flex justify-between items-center py-3">
-                <div><svg className="w-6 h-6" fill="#000000" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><title>Artboard</title><path d="M768 306.2V383H256v-76.8h512zM256 536.6h512v-76.8H256v76.8zm0 153.6h512v-76.8H256v76.8z" fillRule="evenodd"></path></g></svg></div>
+                <div onClick={onToggleMenu}><svg className="w-6 h-6" fill="#000000" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><title>Artboard</title><path d="M768 306.2V383H256v-76.8h512zM256 536.6h512v-76.8H256v76.8zm0 153.6h512v-76.8H256v76.8z" fillRule="evenodd"></path></g></svg></div>
 
                 <img src="/logo.png" alt="logo" className="w-8/12 h-auto" />
 

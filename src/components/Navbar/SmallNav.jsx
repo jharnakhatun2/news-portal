@@ -1,29 +1,22 @@
 import React from "react"
 
-const SmallNav = () => {
-  const newsCategories = [
-    "National News",
-    "Breaking News",
-    "Regular News",
-    "International News",
-    "Sports",
-    "Entertainment",
-    "Culture",
-    "Arts",
-  ];
+const SmallNav = ({categoryData,toggleMenu}) => {
+  
   return (
-    <nav className="block lg:hidden absolute w-full top-12 sm:top-20">
+    <>
+    {toggleMenu && <nav className="block lg:hidden absolute w-1/2 top-12 sm:top-20">
       <ul className="text-sm">
-        {newsCategories.map((item, index) => (
+        {categoryData?.map((item) => (
           <li
-            key={index}
+            key={item.id}
             className="bg-gray-100 p-2 hover:shadow-2xl hover:bg-gray-200 cursor-pointer"
           >
-            {item}
+            {item.name}
           </li>
         ))}
       </ul>
-    </nav>
+    </nav>}
+    </>
   )
 };
 

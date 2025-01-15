@@ -19,7 +19,7 @@ const LargeHeader = () => {
                 <div className="flex text-center bg-blue-100 py-2 px-2">
                     <small className="bg-red-400 px-4 py-1 text-white text-xs rounded-sm">LATEST</small>
                     <Marquee speed={40}>
-                        <small>Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</small>
+                        <small>Match Highlights: Germany vs Spain — as it happened   ! A West Village homeowner was!  Match Highlights: Germany vs Spain as... </small>
                     </Marquee>
                 </div>
             </div>
