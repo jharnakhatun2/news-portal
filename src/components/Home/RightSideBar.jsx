@@ -19,7 +19,7 @@ const RightSideBar = () => {
       <div className="divider"></div>
       {/* 2nd rows */}
       <SliderOne/>
-
+      <Border/>
     </div>
   )
 };
