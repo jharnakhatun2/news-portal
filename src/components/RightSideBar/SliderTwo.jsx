@@ -6,32 +6,32 @@ import 'swiper/css/navigation';
 
 const data = [
     {
-        "id": "1",
-        "image": "demo-card-thumbnail.png",
-        "title": "The Frankenstein Filing Error That Created a Monster Mix-Up",
-        "read": "2 min read"
+        'id': '1',
+        'author': 'David French',
+        'title': 'MAGA Is Misreading Its Mandate',
+        'read': '9 min read'
     },
     {
-        "id": "2",
-        "image": "demo-card-thumbnail.png",
-        "title": "You Are Cordially Invited to Our Wedding. But Not to Our Vows.",
-        "read": "4 min read"
+        'id': '2',
+        'author': 'Jordan Thomas',
+        'title': 'Megafires Are a Choice',
+        'read': '4 min read'
     },
     {
-        "id": "3",
-        "image": "demo-card-thumbnail.png",
-        "title": "The Catholic Church Must Challenge Trump on Deportations",
-        "read": "3 min read"
+        'id': '3',
+        'author': 'Bret Stephens',
+        'title': 'The Israeli Right May Soon Be Disenchanted With Trump',
+        'read': '6 min read'
     },
     {
-        "id": "4",
-        "image": "demo-card-thumbnail.png",
-        "title": "Zuckerberg’s Macho Posturing Looks a Lot Like Cowardice",
-        "read": "5 min read"
-    }
-];
+        'id': '4',
+        'author': 'Elie Honig',
+        'title': 'The Perplexing Case of Pam Bondi',
+        'read': '4 min read'
+    },
+]
 
-const SliderOne = () => {
+const SliderTwo = () => {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [isAtStart, setIsAtStart] = useState(true);
@@ -60,14 +60,18 @@ const SliderOne = () => {
                 }}
                 onSlideChange={handleSlideChange}
             >
-                {data?.map((item) => (
-                    <SwiperSlide key={item.id} className="space-y-2">
-                        <img src={item.image} alt="Slide 1" />
-                        <h3 className="font-serif text-black">{item.title}</h3>
-                        <small className="uppercase text-xs text-gray-600">{item.read}</small>
-                    </SwiperSlide>
-                ))}
+               
 
+                {data.map(item => (
+                    <>
+                        <SwiperSlide key={item.id}>
+                            <p className="uppercase text-gray-600 text-xs">{item.author}</p>
+                            <h2 className="font-oswald text-black text-md hover:text-gray-600">{item.title}</h2>
+                            <small className="uppercase text-xs text-gray-600">{item.read}</small>
+                        </SwiperSlide>
+                        
+                    </>
+                ))}
 
                 {/* Navigation Buttons */}
                 <div className="flex gap-2 justify-end py-2">
@@ -100,4 +104,4 @@ const SliderOne = () => {
     );
 };
 
-export default SliderOne;
+export default SliderTwo;

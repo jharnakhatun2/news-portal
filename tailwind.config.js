@@ -8,6 +8,8 @@ export default {
     extend: {
       fontFamily: {
         poppins: '"Poppins", serif',  
+        newsCycle : '"News Cycle", serif',
+        oswald : '"Oswald", serif'
       }
     },
   },
