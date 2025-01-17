@@ -1,9 +1,9 @@
 import React from "react"
 import Border from "../../util/Border/Border";
-import SliderOne from "./SliderOne";
 import Opinion from "../RightSideBar/Opinion";
 import SliderTwo from "../RightSideBar/SliderTwo";
 import MostShared from "../RightSideBar/MostShared";
+import SliderOne from "../RightSideBar/SliderOne";
 
 const RightSideBar = () => {
   return (
