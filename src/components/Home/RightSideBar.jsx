@@ -3,6 +3,7 @@ import Border from "../../util/Border/Border";
 import SliderOne from "./SliderOne";
 import Opinion from "../RightSideBar/Opinion";
 import SliderTwo from "../RightSideBar/SliderTwo";
+import MostShared from "../RightSideBar/MostShared";
 
 const RightSideBar = () => {
   return (
@@ -26,6 +27,8 @@ const RightSideBar = () => {
       <Opinion/>
       <SliderTwo/>
       <Border/>
+      <h2 className="pb-5 font-newsCycle font-bold">Most Shared</h2>
+      <MostShared/>
     </div>
   )
 };

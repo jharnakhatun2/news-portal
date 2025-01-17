@@ -30,14 +30,14 @@ const Opinion = () => {
     return (
         <div>
             {data.map(item => (
-                <>
-                    <div key={item.id} className="cursor-pointer">
+                <div key={item.id}>
+                    <div className="cursor-pointer">
                         <p className="uppercase text-gray-600 text-xs">{item.author}</p>
                         <h2 className="font-oswald text-black text-lg hover:text-gray-600">{item.title}</h2>
                         <small className="uppercase text-xs text-gray-600">{item.read}</small>
                     </div>
                     <div className="divider"></div>
-                </>
+                </div>
             ))}
         </div>
     )

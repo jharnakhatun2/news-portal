@@ -63,14 +63,11 @@ const SliderTwo = () => {
                
 
                 {data.map(item => (
-                    <>
                         <SwiperSlide key={item.id}>
                             <p className="uppercase text-gray-600 text-xs">{item.author}</p>
                             <h2 className="font-oswald text-black text-md hover:text-gray-600">{item.title}</h2>
                             <small className="uppercase text-xs text-gray-600">{item.read}</small>
                         </SwiperSlide>
-                        
-                    </>
                 ))}
 
                 {/* Navigation Buttons */}
