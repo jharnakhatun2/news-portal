@@ -2,7 +2,7 @@ import React from "react"
 import SecNav from "./SecNav";
 import SecondPost from "./SecondPost";
 import ThirdPost from "./ThirdPost";
-import Border from "../../../util/Border/Border";
+
 
 const SecondLayout = () => {
   return (
@@ -27,7 +27,6 @@ const SecondLayout = () => {
         </div>
       </div>
       </div>
-      <Border/>
     </div>
   )
 };

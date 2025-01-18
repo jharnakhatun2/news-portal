@@ -2,6 +2,7 @@ import React from "react"
 import Border from "../../util/Border/Border";
 import FirstLayout from "../LeftSideBar/FirstLayout/FirstLayout";
 import SecondLayout from "../LeftSideBar/SecondLayout/SecondLayout";
+import WatchRead from "../LeftSideBar/Watch/WatchRead";
 
 const LeftSideBar = () => {
   return (
@@ -9,6 +10,9 @@ const LeftSideBar = () => {
      <FirstLayout/>
      <Border/>
      <SecondLayout/>
+     <Border/>
+     <WatchRead/>
+     <Border/>
     </div>
   )
 };

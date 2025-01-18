@@ -23,7 +23,7 @@ const ThirdPost = () => {
       {(item) => (
                 <div className="cursor-pointer">
                     <h2 className="font-serif text-black text-lg hover:text-gray-600">{item.title}</h2>
-                    <p className="font-oswald text-gray-600 text-sm">{item.desc}</p>
+                    <p className="font-oswald text-gray-600">{item.desc}</p>
                     <small className="uppercase text-xs text-gray-600">{item.read}</small>
                 </div>
             )}
