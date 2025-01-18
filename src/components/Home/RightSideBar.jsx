@@ -8,8 +8,6 @@ import SliderOne from "../RightSideBar/SliderOne";
 const RightSideBar = () => {
   return (
     <div className="py-5 lg:py-0 lg:max-w-72">
-      {/* border */}
-      <Border/>
       {/* 1st row */}
       <div className="lg:flex flex-col-reverse space-y-3 lg:space-y-0">
         <div className="space-y-2 pt-2">
@@ -20,13 +18,15 @@ const RightSideBar = () => {
         <img src="demo-card-thumbnail.png" alt="Image/Dragon News" className="w-full"/>
       </div>
       <div className="divider"></div>
-      {/* 2nd rows */}
       <SliderOne/>
       <Border/>
+      {/* 2nd rows */}
       <h2 className="pb-5 font-oswald font-bold">Opinion</h2>
       <Opinion/>
+      <div className="divider"></div>
       <SliderTwo/>
       <Border/>
+      {/* 3rd rows */}
       <h2 className="pb-5 font-newsCycle font-bold">Most Shared</h2>
       <MostShared/>
     </div>

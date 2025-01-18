@@ -1,6 +1,7 @@
 import React from "react"
+import ReusePost from "../../util/ReusePost/ReusePost";
 
-const data = [
+const opinionData = [
     {
         'id': '1',
         'author': 'Patrick Healy, Kristen Soltis Anderson and Adrian J. Rivera',
@@ -28,18 +29,17 @@ const data = [
 
 const Opinion = () => {
     return (
-        <div>
-            {data.map(item => (
-                <div key={item.id}>
+        <ReusePost data={opinionData}>
+            {
+                (item) => (
                     <div className="cursor-pointer">
                         <p className="uppercase text-gray-600 text-xs">{item.author}</p>
                         <h2 className="font-oswald text-black text-lg hover:text-gray-600">{item.title}</h2>
                         <small className="uppercase text-xs text-gray-600">{item.read}</small>
                     </div>
-                    <div className="divider"></div>
-                </div>
-            ))}
-        </div>
+                )
+            }
+        </ReusePost>
     )
 };
 

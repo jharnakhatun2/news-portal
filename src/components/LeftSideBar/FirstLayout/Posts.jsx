@@ -1,6 +1,7 @@
 import React from "react"
+import ReusePost from "../../../util/ReusePost/ReusePost";
 
-const data = [
+const postData = [
     {
         'id': '1',
         'title': 'Israel and Hamas Work Out Differences That Had Delayed Deal, Netanyahu Says',
@@ -19,17 +20,16 @@ const data = [
 const Posts = () => {
     return (
         <div className="w-1/3">
-            {data.map((item,index) => (
-                <div key={item.id}>
-                    <div className="cursor-pointer">
-                        <p className="uppercase text-black text-xs">{item.topic}</p>
-                        <h2 className="font-serif text-black text-xl hover:text-gray-600">{item.title}</h2>
-                        <p className="font-oswald text-gray-600 text-md">{item.desc}</p>
-                        <small className="uppercase text-xs text-gray-600">{item.read}</small>
-                    </div>
-                    {index !== data.length - 1 && <div className="divider"></div>}
+        <ReusePost data={postData}>
+            {(item) => (
+                <div className="cursor-pointer">
+                    <p className="uppercase text-black text-xs">{item.topic}</p>
+                    <h2 className="font-serif text-black text-xl hover:text-gray-600">{item.title}</h2>
+                    <p className="font-oswald text-gray-600 text-md">{item.desc}</p>
+                    <small className="uppercase text-xs text-gray-600">{item.read}</small>
                 </div>
-            ))}
+            )}
+        </ReusePost>
         </div>
     )
 };
