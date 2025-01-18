@@ -19,7 +19,7 @@ const postData = [
 
 const Posts = () => {
     return (
-        <div className="w-1/3">
+        <div className="md:w-2/5 pb-5 md:pb-0">
         <ReusePost data={postData}>
             {(item) => (
                 <div className="cursor-pointer">

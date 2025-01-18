@@ -4,7 +4,7 @@ import ImageSlider from "./ImageSlider";
 
 const FirstLayout = () => {
   return (
-    <div className="flex justify-between">
+    <div className="md:flex justify-between gap-5">
       <Posts/>
       <ImageSlider/>
     </div>

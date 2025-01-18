@@ -39,7 +39,7 @@ const SliderOne = () => {
             {(item)=>(
                 <div>
                     <img src={item.image} alt="Slide 1" />
-                     <h3 className="font-serif text-black">{item.title}</h3>
+                     <h3 className="font-serif text-black pt-3">{item.title}</h3>
                      <small className="uppercase text-xs text-gray-600">{item.read}</small>
                 </div>
             )}

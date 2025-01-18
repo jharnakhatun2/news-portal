@@ -5,19 +5,19 @@
     },
     {
         "id": "1",
-        "name": "Breaking News"
+        "name": "Business"
     },
     {
         "id": "2",
-        "name": "Regular News"
+        "name": "Arts"
     },
     {
         "id": "3",
-        "name": "International News"
+        "name": "Lifestyle"
     },
     {
         "id": "4",
-        "name": "Sports"
+        "name": "Opinion"
     },
     {
         "id": "5",
@@ -29,6 +29,6 @@
     },
     {
         "id": "7",
-        "name": "Arts"
+        "name": "Cooking"
     }
 ]

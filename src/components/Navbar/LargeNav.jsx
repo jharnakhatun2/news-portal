@@ -1,11 +1,11 @@
 import React from "react"
 
-const LargeNav = ({categoryData}) => {
+const LargeNav = ({ categoryData }) => {
 
-    return (
-        <nav className="border-double border-b-4 hidden lg:block">
-            <ul className="flex justify-between text-sm py-3">
-            {categoryData?.map((item) => (
+  return (
+    <nav className="border-double border-b-4 hidden lg:block">
+      <ul className="flex justify-between text-sm py-3">
+        {categoryData?.map((item) => (
           <li
             key={item.id}
             className=" cursor-pointer"
@@ -13,9 +13,9 @@ const LargeNav = ({categoryData}) => {
             {item.name}
           </li>
         ))}
-                </ul>
-        </nav>
-    )
+      </ul>
+    </nav>
+  )
 };
 
 export default LargeNav;

@@ -19,15 +19,14 @@ const ImageSliderData = [
 ];
 
 const ImageSlider = () => {
-    
 
     return (
-        <div className="max-w-xl">
+        <div className="md:max-w-md xl:max-w-xl">
         <SwiperReuse data={ImageSliderData} slidesPerView={1}>
             {(item) => (
                 <div>
-                    <img src={item.image} alt="Slide 1" className="w-full"/>
-                     <small className="flex justify-end uppercase text-xs text-gray-600">{item.alter}</small>
+                    <img src={item.image} alt="Slide 1" />
+                     <small className="flex justify-end uppercase text-[10px] pt-1 text-gray-600">{item.alter}</small>
                 </div>
             )}
         </SwiperReuse>
