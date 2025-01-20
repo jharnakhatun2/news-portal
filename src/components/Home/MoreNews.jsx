@@ -6,16 +6,16 @@ import RightPost from "../LeftSideBar/MoreNews/RightPost";
 const MoreNews = () => {
   return (
     <div>
-       <h2 className="font-sans text-black font-medium">More News</h2>
-       <div className="lg:flex lg:divide-x gap-5 py-5">
+      <h2 className="font-sans text-black font-medium pt-3">More News</h2>
+      <div className="lg:flex lg:divide-x gap-5 py-5">
         <div className="md:flex gap-5">
-        <LeftPost/>
-        <div className="divider sm:hidden"></div>
-        <ImageMore/>
+          <LeftPost />
+          <div className="divider sm:hidden"></div>
+          <ImageMore />
         </div>
         <div className="divider lg:hidden"></div>
-        <RightPost/>
-       </div>
+        <RightPost />
+      </div>
 
     </div>
   )

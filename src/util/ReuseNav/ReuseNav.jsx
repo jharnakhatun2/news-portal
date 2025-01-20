@@ -2,7 +2,7 @@ import React from "react"
 
 const ReuseNav = ({ data }) => {
     return (
-        <nav className="hidden sm:block">
+        <nav className="hidden sm:block pt-3">
             <ul className="flex justify-between text-sm">
                 {data?.map((item, index) => (
                     <li

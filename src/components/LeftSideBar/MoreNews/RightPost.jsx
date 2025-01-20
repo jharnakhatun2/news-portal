@@ -39,6 +39,7 @@ const RightPost = () => {
                     className={`pr-5 lg:pr-0 ${index % 2 !== 0 ? 'md:pl-5 lg:pl-0 md:border-l lg:border-l-0' : ''}`}
                 >
                     <div className="content-wrapper">
+                        {item.book && item.newsletter ? <div className="text-gray-600"><small className="uppercase text-xs pr-2 text-black">{item.book}</small><small>{item.newsletter}</small></div> :''}
                         <h2 className="font-serif text-black hover:text-gray-600">{item.title}</h2>
                         <small className="uppercase text-xs text-gray-600">{item.read}</small>
                     </div>

@@ -21,4 +21,31 @@
     font-style: normal;
   }
 
+  /* slider nav style */
+  .custom-prev,
+.custom-next {
+    font-size: 1.2rem; /* Size of the arrow */
+    color: #333; /* Arrow color */
+    width: 30px; /* Button width */
+    height: 30px; /* Button height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+    background-color: #555; /* Hover background color */
+    color: white; /* Hover arrow color */
+}
+
+.custom-prev {
+    left: 10px; /* Positioning for left button */
+}
+
+.custom-next {
+    right: 10px; /* Positioning for right button */
+}
+
   

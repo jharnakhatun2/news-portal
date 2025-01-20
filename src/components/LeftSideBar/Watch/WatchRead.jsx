@@ -4,7 +4,7 @@ const WatchRead = () => {
     return (
         <>
 
-            <h2 className="font-sans text-black font-medium">What to Watch and Read</h2>
+            <h2 className="font-sans text-black font-medium pt-3">What to Watch and Read</h2>
             <div className="pt-3 pb-5">
                 <div className="grid grid-cols-2 gap-5 md:divide-x">
                     <div className="cursor-pointer md:flex flex-row-reverse md:gap-5 justify-between">

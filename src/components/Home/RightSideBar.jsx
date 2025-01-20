@@ -15,20 +15,20 @@ const RightSideBar = () => {
           <p className="text-sm text-gray-600">A West Village homeowner was granted permission to build a gate on her house in an effort to stop overeager “Sex and the City” fans from trespassing.</p>
           <small className="uppercase text-xs text-gray-600">2 min read</small>
         </div>
-        <img src="demo-card-thumbnail.png" alt="Image/Dragon News" className="w-full"/>
+        <img src="demo-card-thumbnail.png" alt="Image/Dragon News" className="w-full" />
       </div>
       <div className="divider"></div>
-      <SliderOne/>
-      <Border/>
+      <SliderOne />
+      <Border />
       {/* 2nd rows */}
-      <h2 className="pb-5 font-oswald font-bold">Opinion</h2>
-      <Opinion/>
+      <h2 className="pb-5 font-oswald font-bold pt-3">Opinion</h2>
+      <Opinion />
       <div className="divider"></div>
-      <SliderTwo/>
-      <Border/>
+      <SliderTwo />
+      <Border />
       {/* 3rd rows */}
-      <h2 className="pb-5 font-newsCycle font-bold">Most Shared</h2>
-      <MostShared/>
+      <h2 className="pb-5 font-newsCycle font-bold pt-3">Most Shared</h2>
+      <MostShared />
     </div>
   )
 };
