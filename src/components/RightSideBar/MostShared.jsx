@@ -46,20 +46,6 @@ const MostShared = () => {
                 </div>
             )}
         </ReusePost>
-        // <div>
-        //     {data.map((item, index) => (
-        //         <div key={item.id} >
-        //             <div className="cursor-pointer flex gap-2 justify-between">
-        //                 <div className="w-3/4">
-        //                 <h2 className="font-serif text-black hover:text-gray-600">{item.title}</h2>
-        //                 <small className="uppercase text-xs text-gray-600">{item.read}</small>
-        //                 </div>
-        //                 <img src={item.image} alt=""  className="w-24 h-24"/>
-        //             </div>
-        //             {index !== data.length - 1 && <div className="divider"></div> }
-        //         </div>
-        //     ))}
-        // </div>
     )
 };
 

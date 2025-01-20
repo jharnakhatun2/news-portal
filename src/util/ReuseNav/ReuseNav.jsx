@@ -7,7 +7,7 @@ const ReuseNav = ({ data }) => {
                 {data?.map((item, index) => (
                     <li
                         key={item.id}
-                        className={`cursor-pointer text-xs font-serif ${index === 0 ? 'font-bold' : ''}`}
+                        className={`cursor-pointer text-xs font-serif ${index === 0 ? 'font-bold text-black' : ''}`}
                     >
                         {item.name}
                     </li>

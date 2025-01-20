@@ -3,6 +3,7 @@ import Border from "../../util/Border/Border";
 import FirstLayout from "../LeftSideBar/FirstLayout/FirstLayout";
 import SecondLayout from "../LeftSideBar/SecondLayout/SecondLayout";
 import WatchRead from "../LeftSideBar/Watch/WatchRead";
+import Game from "../LeftSideBar/Game/Game";
 
 const LeftSideBar = () => {
   return (
@@ -13,6 +14,7 @@ const LeftSideBar = () => {
      <Border/>
      <WatchRead/>
      <Border/>
+     <Game/>
     </div>
   )
 };
