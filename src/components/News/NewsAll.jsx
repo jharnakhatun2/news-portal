@@ -1,6 +1,7 @@
 import React from "react"
 import News from "./News";
 import Opinion from "./Opinion";
+import Atr from "./Arts";
 
 const NewsAll = () => {
   return (
@@ -9,6 +10,9 @@ const NewsAll = () => {
       <News/>
       <h2 className="font-sans text-black font-medium py-3 uppercase text-sm">Opinion</h2>
       <Opinion/>
+      <h2 className="font-sans text-black font-medium py-3 uppercase text-sm">Arts</h2>
+      <Atr/>
+      <h2 className="font-sans text-black font-medium py-3 uppercase text-sm">Living</h2>
     </div>
   )
 };
