@@ -45,7 +45,7 @@ const artData = [
 ]
 
 const Atr = () => {
-  return <ReuseNews data={artData}/>
+    return <ReuseNews data={artData} />
 };
 
 export default Atr;

@@ -5,32 +5,34 @@ import Border from "../../util/Border/Border";
 import MoreNews from "./MoreNews";
 import Well from "../LeftSideBar/Well/Well";
 import NewsAll from "../News/NewsAll";
+import Footer from "../Footer/Footer";
 
 
 const HomeLayout = () => {
   const [newsData, setNewsData] = useState(null)
-  useEffect(()=>{
+  useEffect(() => {
     fetch('news.json')
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      setNewsData(data);
-    })
-    .catch(err => console.error(err))
-  },[])
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setNewsData(data);
+      })
+      .catch(err => console.error(err))
+  }, [])
   return (
     <div>
-    <div className="lg:flex justify-between gap-2 py-5">
-      <LeftSideBar/>
-      <div className="lg:divider lg:divider-horizontal"></div>
-      <RightSideBar/>
-    </div>
-    <Border/>
-    <MoreNews/>
-    <Border/>
-    <Well/>
-    <Border/>
-    <NewsAll/>
+      <div className="lg:flex justify-between gap-2 py-5">
+        <LeftSideBar />
+        <div className="lg:divider lg:divider-horizontal"></div>
+        <RightSideBar />
+      </div>
+      <Border />
+      <MoreNews />
+      <Border />
+      <Well />
+      <Border />
+      <NewsAll />
+      <Footer/>
     </div>
   )
 };

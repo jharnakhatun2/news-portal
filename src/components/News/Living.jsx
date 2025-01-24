@@ -69,7 +69,7 @@ const livingData = [
 ]
 
 const Living = () => {
-    return <ReuseNews data={livingData}/>
+    return <ReuseNews data={livingData} />
 };
 
 export default Living;

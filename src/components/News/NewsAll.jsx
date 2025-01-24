@@ -6,15 +6,15 @@ import Living from "./Living";
 
 const NewsAll = () => {
   return (
-    <div className="hidden md:block">
+    <div className="hidden md:block pb-10">
       <h2 className="font-sans text-black font-medium py-3 uppercase text-sm">News</h2>
-      <News/>
+      <News />
       <h2 className="font-sans text-black font-medium pt-10 pb-3 uppercase text-sm">Opinion</h2>
-      <Opinion/>
+      <Opinion />
       <h2 className="font-sans text-black font-medium pt-10 pb-3 uppercase text-sm">Arts</h2>
-      <Atr/>
+      <Atr />
       <h2 className="font-sans text-black font-medium pt-10 pb-3 uppercase text-sm">Living</h2>
-      <Living/>
+      <Living />
     </div>
   )
 };
