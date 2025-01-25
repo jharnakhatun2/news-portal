@@ -6,65 +6,177 @@ const livingData = [
         'id': '1',
         'topic': 'Style',
         'image': 'living1.webp',
-        'post1': 'The Ball Gowns of Trump’s New ‘Golden Age’',
-        'post2': 'Fresh Off ‘Severance,’ John Turturro Tries Modeling',
-        'post3': 'Piled On Prints and an ‘Upstate Vibe’'
+        'posts': [
+            {
+                'id' : '1',
+                'title' : 'The Ball Gowns of Trump’s New ‘Golden Age’',
+                'description': ''
+            },
+            {
+                'id' : '2',
+                'title' : 'Fresh Off ‘Severance,’ John Turturro Tries Modeling',
+                'description': ''
+            },
+            {
+                'id' : '3',
+                'title' : 'Piled On Prints and an ‘Upstate Vibe’',
+                'description': ''
+            }
+        ]
     },
     {
         'id': '2',
         'topic': 'Food',
         'image': 'living2.webp',
-        'post1': 'Restaurant Workers Bring Unique Skills to the L.A. Fire Crisis',
-        'post2': 'As the Power Shifts, D.C. Restaurateurs Are Nervous, and Diplomatic',
-        'post3': 'André Soltner, Famed Chef at New York’s Lutèce, Dies at 92'
+        'posts': [
+            {
+                'id' : '1',
+                'title' : 'Restaurant Workers Bring Unique Skills to the L.A. Fire Crisis',
+                'description': ''
+            },
+            {
+                'id' : '2',
+                'title' : 'As the Power Shifts, D.C. Restaurateurs Are Nervous, and Diplomatic',
+                'description': ''
+            },
+            {
+                'id' : '3',
+                'title' : 'André Soltner, Famed Chef at New York’s Lutèce, Dies at 92',
+                'description': ''
+            }
+        ]
     },
     {
         'id': '3',
         'topic': 'Well',
         'image': 'living3.webp',
-        'post1': 'Are Americans Doing Fitness Wrong?',
-        'post2': 'Are Dental X-Rays Safe?',
-        'post3': 'Do LED Face Masks Work?'
+        'posts': [
+            {
+                'id' : '1',
+                'title' : 'Are Americans Doing Fitness Wrong?',
+                'description': ''
+            },
+            {
+                'id' : '2',
+                'title' : 'Are Dental X-Rays Safe?',
+                'description': ''
+            },
+            {
+                'id' : '3',
+                'title' : 'Do LED Face Masks Work?',
+                'description': ''
+            }
+        ]
     },
     {
         'id': '4',
         'topic': 'The New York Times Magazine',
         'image': 'living4.webp',
-        'post1': 'Curtis Yarvin Says Democracy Is Done. Powerful Conservatives Are Listening.',
-        'post2': 'Can I Go to Church When I Don’t Believe?',
-        'post3': 'Syrians in Turkey Agonize Over a Return Home'
+        'posts': [
+            {
+                'id' : '1',
+                'title' : 'Curtis Yarvin Says Democracy Is Done. Powerful Conservatives Are Listening.',
+                'description': ''
+            },
+            {
+                'id' : '2',
+                'title' : 'Can I Go to Church When I Don’t Believe?',
+                'description': ''
+            },
+            {
+                'id' : '3',
+                'title' : 'Syrians in Turkey Agonize Over a Return Home',
+                'description': ''
+            }
+        ]
     },
     {
         'id': '5',
         'topic': 'T Magazine',
         'image': 'living5.webp',
-        'post1': 'The Movies That Fashion Designers Watch Again and Again',
-        'post2': 'Mexico City’s New Wave of Nostalgic Small Hotels',
-        'post3': 'The Painter Whose Canvases Have Hidden Messages'
+        'posts': [
+            {
+                'id' : '1',
+                'title' : 'The Movies That Fashion Designers Watch Again and Again',
+                'description': ''
+            },
+            {
+                'id' : '2',
+                'title' : 'Mexico City’s New Wave of Nostalgic Small Hotels',
+                'description': ''
+            },
+            {
+                'id' : '3',
+                'title' : 'The Painter Whose Canvases Have Hidden Messages',
+                'description': ''
+            }
+        ]
     },
     {
         'id': '6',
         'topic': 'Travel',
         'image': 'living6.webp',
-        'post1': 'It’s Zinc Bar vs. Barista in a Paris Battle of the Buzz',
-        'post2': 'Never Heard of Yogyakarta? It Might Be the Center of the Universe.',
-        'post3': 'TikTok Fueled Travel Crazes, What Happens Now?'
+        'posts': [
+            {
+                'id' : '1',
+                'title' : 'It’s Zinc Bar vs. Barista in a Paris Battle of the Buzz',
+                'description': ''
+            },
+            {
+                'id' : '2',
+                'title' : 'Never Heard of Yogyakarta? It Might Be the Center of the Universe.',
+                'description': ''
+            },
+            {
+                'id' : '3',
+                'title' : 'TikTok Fueled Travel Crazes, What Happens Now?',
+                'description': ''
+            }
+        ]
     },
     {
         'id': '7',
         'topic': 'Love',
         'image': 'living7.webp',
-        'post1': 'A Workplace Crush Heats Up Thanks to Burned Cauliflower Pizza',
-        'post2': 'Weddings That Are Out of This World (or at Least Way Out of the Chapel)',
-        'post3': 'You Are Cordially Invited to Our Wedding. But Not to Our Vows.'
+        'posts': [
+            {
+                'id' : '1',
+                'title' : 'A Workplace Crush Heats Up Thanks to Burned Cauliflower Pizza',
+                'description': ''
+            },
+            {
+                'id' : '2',
+                'title' : 'Weddings That Are Out of This World (or at Least Way Out of the Chapel)',
+                'description': ''
+            },
+            {
+                'id' : '3',
+                'title' : 'You Are Cordially Invited to Our Wedding. But Not to Our Vows.',
+                'description': ''
+            }
+        ]
     },
     {
         'id': '8',
         'topic': 'Real Estate',
         'image': 'living8.webp',
-        'post1': 'Rescuing Pongo, Pearl, Bandit, Tiger and Zipper',
-        'post2': 'Loving an ‘Untouched’ Modernist House, and Then Getting Down to Work',
-        'post3': 'Open Houses in Los Angeles Take on an Eerie Feeling'
+        'posts': [
+            {
+                'id' : '1',
+                'title' : 'Rescuing Pongo, Pearl, Bandit, Tiger and Zipper',
+                'description': ''
+            },
+            {
+                'id' : '2',
+                'title' : 'Loving an ‘Untouched’ Modernist House, and Then Getting Down to Work',
+                'description': ''
+            },
+            {
+                'id' : '3',
+                'title' : 'Open Houses in Los Angeles Take on an Eerie Feeling',
+                'description': ''
+            }
+        ]
     },
 ]
 

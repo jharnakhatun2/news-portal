@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 
 // Import required modules
 import { Navigation } from 'swiper/modules';
+import { Link } from "react-router-dom";
 
 const wellData = [
     {
@@ -71,7 +72,7 @@ const Well = () => {
             >
                 {wellData.map((item, index) => (
                     <SwiperSlide key={item.id} className={`${index !== wellData.length - 1 && 'border-r'} md:pr-4 lg:pr-5 mb-2 md:mb-5`}>
-                        <div className="space-y-3 lg:space-y-2 ">
+                        <Link to={`/${item.id}`} className="space-y-3 lg:space-y-2 ">
                             <div>
                                 <img
                                     src={item.image}
@@ -88,7 +89,7 @@ const Well = () => {
                                     {item.read}
                                 </small>
                             </div>
-                        </div>
+                        </Link>
                     </SwiperSlide>
                 ))}
                 <div className="custom-prev cursor-pointer absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full z-10 shadow hover:bg-gray-300">
