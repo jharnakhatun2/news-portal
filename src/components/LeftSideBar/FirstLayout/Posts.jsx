@@ -32,9 +32,9 @@ const Posts = () => {
                 <div className="cursor-pointer">
                     <Link to={`/${item.id}`}>
                     <p className="uppercase text-black text-xs">{item.topic}</p>
-                    <h2 className="font-serif text-black text-xl hover:text-gray-600">{item.title}</h2>
-                    <p className="font-oswald text-gray-600 text-md">{item.short_desc}</p>
-                    <small className="uppercase text-xs text-gray-600">{item.read}</small>
+                    <h2 className="font-serif text-black text-xl hover:text-gray-500">{item.title}</h2>
+                    <p className="font-oswald text-gray-500 text-sm py-1">{item.short_desc}</p>
+                    <small className="uppercase text-xs text-gray-500">{item.read}</small>
                     </Link>
                 </div>
             )}

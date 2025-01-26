@@ -4,6 +4,7 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import SwiperReuse from "../../util/Swiper/SwiperReuse";
+import { Link } from "react-router-dom";
 
 const posts = [
     {
@@ -43,11 +44,11 @@ const SliderOne = () => {
     return (
         <SwiperReuse data={posts} slidesPerView={2}>
             {(item)=>(
-                <div>
+                <Link to={`/${item.id}`}>
                     <img src={item.image} alt="Slide 1" />
                      <h3 className="font-serif text-black pt-3">{item.title}</h3>
                      <small className="uppercase text-xs text-gray-600">{item.read}</small>
-                </div>
+                </Link>
             )}
         </SwiperReuse>
     );

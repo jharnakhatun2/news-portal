@@ -4,6 +4,7 @@ import Opinion from "../RightSideBar/Opinion";
 import SliderTwo from "../RightSideBar/SliderTwo";
 import MostShared from "../RightSideBar/MostShared";
 import SliderOne from "../RightSideBar/SliderOne";
+import { Link } from "react-router-dom";
 
 const firstRowData = [
   {
@@ -23,7 +24,7 @@ const RightSideBar = () => {
       {/* 1st row */}
       {
         firstRowData?.map((item)=>(
-          <div className="lg:flex flex-col-reverse space-y-3 lg:space-y-0">
+          <Link to={`/${item.id}`} key={item.id} className="lg:flex flex-col-reverse space-y-3 lg:space-y-0">
         <div className="space-y-2 pt-2">
           <h2 className="text-2xl font-serif">{item.title}</h2>
           <p className="text-sm text-gray-600">{item.short_desc}</p>
@@ -33,7 +34,7 @@ const RightSideBar = () => {
         <img src={item.image} alt="Image/Dragon News" className="w-full" />
         <small className="flex justify-end uppercase text-[10px] text-gray-600 pt-1">{item.author}</small>
         </div>
-      </div>
+      </Link>
         ))
       }
       
