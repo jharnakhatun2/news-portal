@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import LargeNav from "./LargeNav";
 import SmallNav from "./SmallNav";
+import SingleNav from "./SingleNav";
 
 const Navbar = ({toggleMenu}) => {
   const [categoryData, setCategoryData] = useState(null)

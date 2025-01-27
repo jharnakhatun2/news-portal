@@ -5,7 +5,7 @@ import Border from "../../util/Border/Border";
 import MoreNews from "./MoreNews";
 import Well from "../LeftSideBar/Well/Well";
 import NewsAll from "../News/NewsAll";
-import Footer from "../Footer/Footer";
+
 
 
 const HomeLayout = () => {
@@ -32,7 +32,6 @@ const HomeLayout = () => {
       <Well />
       <Border />
       <NewsAll />
-      <Footer/>
     </div>
   )
 };
