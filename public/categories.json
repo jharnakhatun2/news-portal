@@ -1,34 +1,42 @@
 [
     {
         "id": "0",
-        "name": "World"
+        "name": "World",
+        "url" : "world"
     },
     {
         "id": "1",
-        "name": "Business"
+        "name": "Business",
+        "url" : "business"
     },
     {
         "id": "2",
-        "name": "Arts"
+        "name": "Arts",
+        "url" : "arts"
     },
     {
         "id": "3",
-        "name": "Lifestyle"
+        "name": "Lifestyle",
+        "url" : "lifestyle"
     },
     {
         "id": "4",
-        "name": "Opinion"
+        "name": "Opinion",
+        "url" : "opinion"
     },
     {
         "id": "5",
-        "name": "Entertainment"
+        "name": "Entertainment",
+        "url" : "entertainment"
     },
     {
         "id": "6",
-        "name": "Culture"
+        "name": "Culture",
+        "url" : "culture"
     },
     {
         "id": "7",
-        "name": "Cooking"
+        "name": "Cooking",
+        "url" : "cooking"
     }
 ]

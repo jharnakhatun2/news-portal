@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 
 const SmallNav = ({categoryData,toggleMenu}) => {
   
@@ -7,12 +8,12 @@ const SmallNav = ({categoryData,toggleMenu}) => {
     {toggleMenu && <nav className="block lg:hidden absolute w-1/2 top-12 sm:top-20">
       <ul className="text-sm">
         {categoryData?.map((item) => (
-          <li
+          <Link to={`/${item.url.replace(/^\//, '')}`}
             key={item.id}
-            className="bg-gray-100 p-2 hover:shadow-2xl hover:bg-gray-200 cursor-pointer"
+            className="block bg-gray-100 p-2 hover:shadow-2xl hover:bg-gray-200 cursor-pointer"
           >
             {item.name}
-          </li>
+          </Link>
         ))}
       </ul>
     </nav>}

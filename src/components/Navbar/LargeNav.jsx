@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 
 const LargeNav = ({ categoryData }) => {
 
@@ -6,12 +7,12 @@ const LargeNav = ({ categoryData }) => {
     <nav className="border-double border-b-4 hidden lg:block">
       <ul className="flex justify-between text-sm py-3">
         {categoryData?.map((item) => (
-          <li
+          <Link to={`/${item.url.replace(/^\//, '')}`}
             key={item.id}
             className=" cursor-pointer"
           >
             {item.name}
-          </li>
+          </Link>
         ))}
       </ul>
     </nav>
