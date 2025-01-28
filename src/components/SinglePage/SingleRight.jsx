@@ -2,7 +2,7 @@ import React from "react"
 
 const SingleRight = () => {
     return (
-        <div className="w-full pt-10 md:pt-0">
+        <div className="w-full md:w-auto pt-10 md:pt-0">
             <div>
                 <h3 className="font-serif text-lg bg-gray-300 inline px-3 py-2">LATEST NEWS</h3>
                 <div className="divider"></div>

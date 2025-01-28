@@ -1,32 +1,38 @@
 import React from "react"
 
-const SingleLeft = ({post}) => {
+const SingleLeft = ({ post }) => {
   console.log(post)
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-gray-800 mt-4">{post?.title}</h1>
-      <img 
-        src={post?.image} 
-        alt={post?.title} 
-        className="w-full h-64 object-cover rounded-lg"
-      />
-      
-      <p className="text-gray-600 mt-2">By <span className="font-medium">{post?.author}</span> | {post?.publishedDate}</p>
-      <p className="text-gray-500 text-sm mt-1">{post?.readTime}</p>
-      
-      <div className="mt-4 text-gray-700 leading-7">
-        {post?.content}
+    <div className="w-full md:max-w-4xl">
+      <div className="space-y-1">
+        <h1 className="text-xl md:text-3xl font-medium font-serif text-gray-800 pt-4 md:pt-0">{post?.title}</h1>
+        <p className="font-serif text-gray-600">Published : <span>{post?.published_date}</span></p>
+        <p className="text-red-500 font-oswald">Dragon News Online Report</p>
+      </div>
+      <div className="py-5">
+        <img
+          src={post?.image}
+          alt={post?.title}
+          className="w-full object-cover rounded-lg"
+        />
+        <p className="text-gray-600 mt-2 text-xs flex justify-end">By <span className="font-medium"> {post?.author}</span></p>
+      </div>
+      <div className="font-serif text-lg text-gray-700">
+      <p className=" my-4">{post?.short_desc}</p>
+      <p>{post?.desc}</p>
+      <p className="font-poppins text-red-500 text-sm mt-1">{post?.readTime}</p>
       </div>
 
       <div className="mt-6">
         <h3 className="text-lg font-semibold text-gray-800">Tags:</h3>
-       
       </div>
 
-      <div className="mt-6">
-        <span className="text-gray-600 font-medium">Category: </span>
+      {/* Category */}
+      {post?.category && <div className="mt-6">
+        <span className="text-gray-600 font-medium">Category : </span>
         <span className="text-indigo-600 font-semibold">{post?.category}</span>
-      </div>
+      </div>}
+      
     </div>
   )
 };

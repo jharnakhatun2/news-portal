@@ -16,7 +16,7 @@ const postData = [
     {
         "id": "2",
         "image": "netanyahu.webp",
-        "topic": "Analysis",
+        "category": "Analysis",
         "title": "Benjamin Netanyahu Faces a Political Crisis Over the Gaza Cease-Fire Deal",
         "short_desc": "With his far-right coalition partners opposing an end to the war and threatening to quit, the Israeli prime minister may have to choose: them or the agreement.",
         "desc": "Prime Minister Benjamin Netanyahu is facing mounting pressure as his far-right coalition partners strongly oppose the proposed Gaza cease-fire deal. With threats to withdraw from the coalition, Netanyahu is caught between maintaining political stability and securing a peace agreement that could ease tensions in the region. The ongoing debate has sparked intense discussions within the government, with some officials urging a compromise while others remain steadfast in their opposition to any cease-fire. Analysts suggest that Netanyahu's decision could significantly impact his political future and Israel's strategic direction.",
@@ -33,7 +33,7 @@ const Posts = () => {
             {(item) => (
                 <div className="cursor-pointer">
                     <Link to={`/${item.id}`} state={{ post: item }}>
-                    <p className="uppercase text-black text-xs">{item.topic}</p>
+                    <p className="uppercase text-black text-xs">{item.category}</p>
                     <h2 className="font-serif text-black text-xl hover:text-gray-500">{item.title}</h2>
                     <p className="font-oswald text-gray-500 text-sm py-1">{item.short_desc}</p>
                     <small className="uppercase text-xs text-gray-500">{item.readTime}</small>
