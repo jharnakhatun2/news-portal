@@ -42,9 +42,7 @@ const SingleNav = () => {
             <Link to={`/${item.url.replace(/^\//, '')}`} key={item.id}
               className="cursor-pointer p-3 border hover:shadow-lg block"
             >
-              
               {item.name}
-              
             </Link>
           ))}
         </ul>
