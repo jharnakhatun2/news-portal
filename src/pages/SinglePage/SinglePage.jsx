@@ -3,6 +3,7 @@ import SingleNav from "../../components/Navbar/SingleNav";
 import SingleBody from "../../components/SinglePage/SingleBody";
 import Living from "../../components/News/Living";
 import { useLocation } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 
 
 const SinglePage = () => {
@@ -21,6 +22,7 @@ const SinglePage = () => {
       <h2 className="border-t font-sans text-black font-medium pt-7 pb-4 uppercase text-sm">Also read</h2>
         <Living />
       </div>
+      <Footer/>
     </>
   )
 };

@@ -1,8 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
 
-
-const LogIn = () => {
+const Register = () => {
   return (
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
       <form className="card-body">
@@ -31,4 +30,4 @@ const LogIn = () => {
   )
 };
 
-export default LogIn;
+export default Register;

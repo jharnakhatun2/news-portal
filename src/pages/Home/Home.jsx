@@ -14,6 +14,7 @@ const Home = () => {
       <Header onToggleMenu={handleToggleMenu}/>
       <Navbar toggleMenu={toggleMenu}/>
       <HomeLayout/>
+      <Footer/>
     </div>
   )
 };
