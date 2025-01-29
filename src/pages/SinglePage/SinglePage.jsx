@@ -16,8 +16,9 @@ const SinglePage = () => {
     <>
       <SingleNav />
       <SingleBody post={post}/>
-      <h2 className="border-b font-sans text-black font-medium pt-7 pb-4 uppercase text-sm">Also read</h2>
-      <div className="pt-4 pb-10">
+      
+      <div className="lg:pt-4 pb-10 hidden md:block ">
+      <h2 className="border-t font-sans text-black font-medium pt-7 pb-4 uppercase text-sm">Also read</h2>
         <Living />
       </div>
     </>

@@ -15,6 +15,7 @@ const firstRowData = [
     'author' : 'Photo illustration by Margeaux Walter',
     'desc' : 'In the heart of Manhattan’s West Village, a quiet homeowner sought to reclaim some privacy amidst the constant influx of tourists and “Sex and the City” enthusiasts. The iconic brownstone, which served as the exterior for Carrie Bradshaw’s fictional home, has been a must-visit destination for fans of the series for years. However, the unrelenting crowds, incessant photo-taking, and even cases of trespassing led the homeowner to petition for a protective gate. The decision to approve the gate not only ensures peace for the residents but also marks a bittersweet moment for fans who regard the stoop as a pilgrimage site. This change reflects a growing tension between preserving iconic pop culture landmarks and respecting the rights of private property owners.',
     'readTime' : '2 min read',
+    "published_date": "2025-01-27"
   }
 ]
 
@@ -24,7 +25,7 @@ const RightSideBar = () => {
       {/* 1st row */}
       {
         firstRowData?.map((item)=>(
-          <Link to={`/${item.id}`} key={item.id} className="lg:flex flex-col-reverse space-y-3 lg:space-y-0">
+          <Link to={`/${item.id}`} state={{post:item}} key={item.id} className="lg:flex flex-col-reverse space-y-3 lg:space-y-0">
         <div className="space-y-2 pt-2">
           <h2 className="text-2xl font-serif">{item.title}</h2>
           <p className="text-sm text-gray-600">{item.short_desc}</p>

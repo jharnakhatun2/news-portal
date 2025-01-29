@@ -13,26 +13,30 @@ const SingleLeft = ({ post }) => {
         <img
           src={post?.image}
           alt={post?.title}
-          className="w-full object-cover rounded-lg"
+          className="w-full  rounded-lg"
         />
         <p className="text-gray-600 mt-2 text-xs flex justify-end">By <span className="font-medium"> {post?.author}</span></p>
       </div>
       <div className="font-serif text-lg text-gray-700">
-      <p className=" my-4">{post?.short_desc}</p>
-      <p>{post?.desc}</p>
-      <p className="font-poppins text-red-500 text-sm mt-1">{post?.readTime}</p>
+        <p className=" my-4">{post?.short_desc}</p>
+        <p>{post?.desc}</p>
+        <p className="font-poppins text-red-500 text-sm mt-1">{post?.readTime}</p>
       </div>
 
-      <div className="mt-6">
-        <h3 className="text-lg font-semibold text-gray-800">Tags:</h3>
-      </div>
+      {post?.tags && <div className="mt-6">
+        <h3 className="text-gray-600 font-medium text-lg">Tags:</h3>
+        {post.tags?.map((tag, index) => (
+          <span key={index} className="text-sm space-x-2 font-semibold">{tag} ,</span>
+        ))}
+      </div>}
+
 
       {/* Category */}
       {post?.category && <div className="mt-6">
         <span className="text-gray-600 font-medium">Category : </span>
         <span className="text-indigo-600 font-semibold">{post?.category}</span>
       </div>}
-      
+
     </div>
   )
 };

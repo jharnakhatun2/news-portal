@@ -9,31 +9,39 @@ import { Link } from "react-router-dom";
 const sliderData = [
     {
         "id": "1",
+        "image" : "sliderTwo.webp",
         "author": "David French",
         "title": "MAGA Is Misreading Its Mandate",
-        "read": "9 min read",
-        "desc": "David French analyzes how the MAGA movement may be misinterpreting the public's expectations and political climate. The article delves into the ideological challenges, strategic missteps, and the potential consequences of failing to align with broader voter sentiments."
+        "readTime": "9 min read",
+        "desc": "David French analyzes how the MAGA movement may be misinterpreting the public's expectations and political climate. The article delves into the ideological challenges, strategic missteps, and the potential consequences of failing to align with broader voter sentiments.",
+        "published_date": "2025-01-24"
     },
     {
         "id": "2",
+        "image" : "sliderTwo.webp",
         "author": "Jordan Thomas",
         "title": "Megafires Are a Choice",
-        "read": "4 min read",
-        "desc": "Jordan Thomas explores the growing frequency and intensity of megafires, arguing that they are largely a consequence of policy decisions and human negligence. The article discusses ways to mitigate wildfire risks through responsible land management and climate-conscious policies."
+        "readTime": "4 min read",
+        "desc": "Jordan Thomas explores the growing frequency and intensity of megafires, arguing that they are largely a consequence of policy decisions and human negligence. The article discusses ways to mitigate wildfire risks through responsible land management and climate-conscious policies.",
+        "published_date": "2025-01-24"
     },
     {
         "id": "3",
+        "image" : "sliderTwo.webp",
         "author": "Bret Stephens",
         "title": "The Israeli Right May Soon Be Disenchanted With Trump",
-        "read": "6 min read",
-        "desc": "Bret Stephens examines the complex relationship between the Israeli right and former President Trump, highlighting potential areas of friction. The article explores how evolving geopolitical realities may lead to shifting alliances and recalibrated expectations within Israeli politics."
+        "readTime": "6 min read",
+        "desc": "Bret Stephens examines the complex relationship between the Israeli right and former President Trump, highlighting potential areas of friction. The article explores how evolving geopolitical realities may lead to shifting alliances and recalibrated expectations within Israeli politics.",
+        "published_date": "2025-01-24"
     },
     {
         "id": "4",
+        "image" : "sliderTwo.webp",
         "author": "Elie Honig",
         "title": "The Perplexing Case of Pam Bondi",
-        "read": "4 min read",
-        "desc": "Elie Honig delves into the legal and political intricacies surrounding Pam Bondi, offering insights into her career, controversies, and the broader implications of her actions. The article provides a nuanced look at how her decisions have shaped public perception and legal precedent."
+        "readTime": "4 min read",
+        "desc": "Elie Honig delves into the legal and political intricacies surrounding Pam Bondi, offering insights into her career, controversies, and the broader implications of her actions. The article provides a nuanced look at how her decisions have shaped public perception and legal precedent.",
+        "published_date": "2025-01-24"
     }
 ]
 
@@ -44,10 +52,10 @@ const SliderTwo = () => {
     return (
         <SwiperReuse data={sliderData} slidesPerView={2}>
             {(item) => (
-                <Link to={`/${item.id}`}>
+                <Link to={`/${item.id}`} state={{post:item}}>
                  <p className="uppercase text-gray-600 text-xs">{item.author}</p>
                  <h2 className="font-oswald text-black text-md hover:text-gray-600">{item.title}</h2>                     
-                 <small className="uppercase text-xs text-gray-600">{item.read}</small>   
+                 <small className="uppercase text-xs text-gray-600">{item.readTime}</small>   
                 </Link>
             )}
         </SwiperReuse>
