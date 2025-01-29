@@ -17,7 +17,7 @@ const FormLayout = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-grow flex items-center justify-center">
+      <div className="flex-grow flex">
         <Outlet/>
       </div>
 

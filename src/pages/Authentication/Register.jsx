@@ -21,9 +21,9 @@ const Register = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-neutral">Login</button>
+          <button className="btn btn-neutral">Create Account</button>
         </div>
-        <small className="text-center text-xs">Dont’t Have An Account ? <Link to='/register' className="text-red-500 link link-hover">Register</Link></small>
+        <small className="text-center text-xs">Already Have An Account ? <Link to='/login' className="text-red-500 link link-hover">Login</Link></small>
       </form>
       
     </div>
