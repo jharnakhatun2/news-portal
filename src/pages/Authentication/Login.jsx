@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import PasswordInput from "../../util/PasswordInput/PasswordInput";
+import { useState } from "react";
 
 
 const LogIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <>
       <div className="hero">
@@ -14,15 +17,10 @@ const LogIn = () => {
                 </label>
                 <input type="email" placeholder="email" className="input input-bordered" required />
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input type="password" placeholder="password" className="input input-bordered" required />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                </label>
-              </div>
+              <PasswordInput label='Password' isVisible={showPassword} toggleVisibility={() => setShowPassword(pre => !pre)} />
+              <label className="label">
+                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+              </label>
               <div className="form-control mt-3">
                 <button className="btn btn-neutral">Login</button>
               </div>

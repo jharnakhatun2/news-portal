@@ -1,7 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom";
+import PasswordInput from "../../util/PasswordInput/PasswordInput";
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   return (
     <>
       <div className="hero">
@@ -14,18 +18,9 @@ const Register = () => {
                 </label>
                 <input type="email" placeholder="email" className="input input-bordered" required />
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input type="password" placeholder="password" className="input input-bordered" required />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Confirm Password</span>
-                </label>
-                <input type="password" placeholder="password" className="input input-bordered" required />
-              </div>
+              <PasswordInput label='Password' isVisible={showPassword} toggleVisibility={() => setShowPassword(pre => !pre)} />
+
+              <PasswordInput label='Confirm Password' isVisible={showConfirmPassword} toggleVisibility={() => setShowConfirmPassword(pre => !pre)} />
 
               <div className="flex">
                 <input type="checkbox" />
@@ -33,7 +28,7 @@ const Register = () => {
                   <small className="pl-1">Accept Term & Conditions</small>
                 </label>
               </div>
-              
+
               <div className="form-control mt-3">
                 <button className="btn btn-neutral">Create Account</button>
               </div>
