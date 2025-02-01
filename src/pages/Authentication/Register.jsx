@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { register, handleSubmit, formState: { errors }, reset, watch} = useForm();
+  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
 
   const onSubmit = (data) => {
     console.log(`Email : ${data.email}, Password : ${data.password}, confirm-pass : ${data.confirmPassword}`)
@@ -19,6 +19,7 @@ const Register = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
+              
               {/* Email Field */}
               <div className="form-control">
                 <label className="label">
@@ -35,7 +36,7 @@ const Register = () => {
                   type="email" placeholder="email" className="input input-bordered" />
               </div>
               {errors.email && <small className="text-red-500" role="alert">{errors.email.message}</small>}
-              
+
               {/* Password Field */}
               <PasswordInput
                 label='Password'

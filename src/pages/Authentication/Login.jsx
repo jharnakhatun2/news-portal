@@ -36,13 +36,15 @@ const LogIn = () => {
 
               {/* Password Field */}
               <PasswordInput label='Password' isVisible={showPassword} toggleVisibility={() => setShowPassword(pre => !pre)} registerOptions={register("password", {
-                  required: "required",
-                  minLength: {
-                    value: 6,
-                    message: "Min length is 6",
-                  },
-                })} />
-                {errors.password && <small className="text-red-500" role="alert">{errors.password.message}</small>}
+                required: "required",
+                minLength: {
+                  value: 6,
+                  message: "Min length is 6",
+                },
+              })} />
+              {errors.password && <small className="text-red-500" role="alert">{errors.password.message}</small>}
+
+              {/* Forget password */}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
               </label>
