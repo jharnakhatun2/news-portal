@@ -6,9 +6,9 @@ import { useForm } from "react-hook-form";
 
 const LogIn = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const {register,handleSubmit,formState: { errors },reset} = useForm();
-  const onSubmit = async (data) => {
-    await login(data.email, data.password)
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(`Email : ${data.email}, Password : ${data.password}`)
     reset()
   }
   return (
@@ -17,13 +17,32 @@ const LogIn = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
+              {/* Email Field */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" placeholder="email" className="input input-bordered" required />
+                <input
+                  {...register("email", {
+                    required: "required",
+                    pattern: {
+                      value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
+                      message: "Not match email format",
+                    },
+                  })}
+                  type="email" placeholder="email" className="input input-bordered" />
               </div>
-              <PasswordInput label='Password' isVisible={showPassword} toggleVisibility={() => setShowPassword(pre => !pre)} />
+              {errors.email && <small className="text-red-500" role="alert">{errors.email.message}</small>}
+
+              {/* Password Field */}
+              <PasswordInput label='Password' isVisible={showPassword} toggleVisibility={() => setShowPassword(pre => !pre)} registerOptions={register("password", {
+                  required: "required",
+                  minLength: {
+                    value: 6,
+                    message: "Min length is 6",
+                  },
+                })} />
+                {errors.password && <small className="text-red-500" role="alert">{errors.password.message}</small>}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
               </label>

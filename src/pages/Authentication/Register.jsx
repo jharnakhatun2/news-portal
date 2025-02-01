@@ -6,10 +6,10 @@ import { useForm } from "react-hook-form";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset, watch} = useForm();
 
   const onSubmit = (data) => {
-    console.log(`Email : ${data.email}, Password : ${data.password}`)
+    console.log(`Email : ${data.email}, Password : ${data.password}, confirm-pass : ${data.confirmPassword}`)
     reset()
   }
 
@@ -19,6 +19,7 @@ const Register = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
+              {/* Email Field */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -31,10 +32,11 @@ const Register = () => {
                       message: "Not match email format",
                     },
                   })}
-                  type="email" placeholder="email" className="input input-bordered" required />
+                  type="email" placeholder="email" className="input input-bordered" />
               </div>
               {errors.email && <small className="text-red-500" role="alert">{errors.email.message}</small>}
-
+              
+              {/* Password Field */}
               <PasswordInput
                 label='Password'
                 isVisible={showPassword}
@@ -45,17 +47,30 @@ const Register = () => {
                     value: 6,
                     message: "Min length is 6",
                   },
+                  validate: {
+                    hasUpperCase: value => /[A-Z]/.test(value) || "Must include at least one uppercase letter",
+                    hasLowerCase: value => /[a-z]/.test(value) || "Must include at least one lowercase letter",
+                    hasNumber: value => /[0-9]/.test(value) || "Must include at least one number",
+                    hasSpecialChar: value => /[!@#$%^&*(),.?\":{}|<>]/.test(value) || "Must include at least one special character",
+                  },
                 })} />
-                {errors.password && <small className="text-red-500" role="alert">{errors.password.message}</small>}
+              {errors.password && <small className="text-red-500" role="alert">{errors.password.message}</small>}
 
-              <PasswordInput label='Confirm Password' isVisible={showConfirmPassword} toggleVisibility={() => setShowConfirmPassword(pre => !pre)} />
+              {/* Confirm Password */}
+              <PasswordInput label='Confirm Password' isVisible={showConfirmPassword} toggleVisibility={() => setShowConfirmPassword(pre => !pre)} registerOptions={register("confirmPassword", {
+                required: "Confirm password is required",
+                validate: value => value === watch("password") || "Passwords do not match"
+              })} />
+              {errors.confirmPassword && <small className="text-red-500">{errors.confirmPassword.message}</small>}
 
+              {/* Terms Fields */}
               <div className="flex">
-                <input type="checkbox" />
+                <input {...register("terms", { required: "You must accept the terms and conditions" })} type="checkbox" />
                 <label className="label">
                   <small className="pl-1">Accept Term & Conditions</small>
                 </label>
               </div>
+              {errors.terms && <small className="text-red-500">{errors.terms.message}</small>}
 
               <div className="form-control mt-3">
                 <button className="btn btn-neutral">Create Account</button>
