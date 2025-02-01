@@ -1,16 +1,22 @@
 import { Link } from "react-router-dom";
 import PasswordInput from "../../util/PasswordInput/PasswordInput";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 
 const LogIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const {register,handleSubmit,formState: { errors },reset} = useForm();
+  const onSubmit = async (data) => {
+    await login(data.email, data.password)
+    reset()
+  }
   return (
     <>
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

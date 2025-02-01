@@ -1,24 +1,52 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import PasswordInput from "../../util/PasswordInput/PasswordInput";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(`Email : ${data.email}, Password : ${data.password}`)
+    reset()
+  }
 
   return (
     <>
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="email" placeholder="email" className="input input-bordered" required />
+                <input
+                  {...register("email", {
+                    required: "required",
+                    pattern: {
+                      value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
+                      message: "Not match email format",
+                    },
+                  })}
+                  type="email" placeholder="email" className="input input-bordered" required />
               </div>
-              <PasswordInput label='Password' isVisible={showPassword} toggleVisibility={() => setShowPassword(pre => !pre)} />
+              {errors.email && <small className="text-red-500" role="alert">{errors.email.message}</small>}
+
+              <PasswordInput
+                label='Password'
+                isVisible={showPassword}
+                toggleVisibility={() => setShowPassword(pre => !pre)}
+                registerOptions={register("password", {
+                  required: "required",
+                  minLength: {
+                    value: 6,
+                    message: "Min length is 6",
+                  },
+                })} />
+                {errors.password && <small className="text-red-500" role="alert">{errors.password.message}</small>}
 
               <PasswordInput label='Confirm Password' isVisible={showConfirmPassword} toggleVisibility={() => setShowConfirmPassword(pre => !pre)} />
 
