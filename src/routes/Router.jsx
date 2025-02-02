@@ -7,13 +7,14 @@ import LogIn from "../pages/Authentication/Login";
 import Register from "../pages/Authentication/Register";
 import { lazy, Suspense } from "react";
 import Loader from "../util/Loader/Loader";
+import AuthProvider from "../components/Authentication/Context/AuthProvider";
 
 const Home = lazy(()=> import("../pages/Home/Home"));
 
 const router = createBrowserRouter([
     {
         path : '/' ,
-        element : <Layout></Layout>,
+        element : <AuthProvider><Layout></Layout></AuthProvider>,
         children: [
             { path: '/', element: (<Suspense fallback={<Loader/>}><Home/></Suspense>) },
             { path: '/:id', element: <SinglePage/> },          
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
     },
     {
         path : '/',
-        element: <FormLayout></FormLayout>,
+        element: <AuthProvider><FormLayout></FormLayout></AuthProvider>,
         children: [
             { path: 'login', element: <LogIn/> },
             { path: 'register', element: <Register/> },

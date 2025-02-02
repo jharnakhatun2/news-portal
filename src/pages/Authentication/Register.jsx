@@ -2,11 +2,14 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import PasswordInput from "../../util/PasswordInput/PasswordInput";
 import { useForm } from "react-hook-form";
+import { authApp } from "../../components/Authentication/Context/AuthProvider";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
+  const {user} = authApp();
+  console.log(user)
 
   const onSubmit = (data) => {
     console.log(`Email : ${data.email}, Password : ${data.password}, confirm-pass : ${data.confirmPassword}`)
