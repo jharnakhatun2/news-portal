@@ -14,7 +14,6 @@ const HomeLayout = () => {
     fetch('news.json')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         setNewsData(data);
       })
       .catch(err => console.error(err))
