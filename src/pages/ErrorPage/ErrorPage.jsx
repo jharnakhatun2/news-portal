@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { AlertTriangle } from "lucide-react";
 
-const Error = () => {
+const ErrorPage = () => {
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
       <div className="text-center max-w-md">
@@ -20,4 +20,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default ErrorPage;
