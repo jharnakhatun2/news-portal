@@ -9,7 +9,8 @@ import { lazy, Suspense } from "react";
 import Loader from "../util/Loader/Loader";
 import AuthProvider from "../components/Authentication/Context/AuthProvider";
 import PrivateRoute from "./PrivateRoute";
-import Error from "../pages/Error/Error";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+
 
 const Home = lazy(()=> import("../pages/Home/Home"));
 
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
             { path: 'register', element: <Register/> },
         ]
     },
-    {path: '*', element: <Error/>}
+    {path: '*', element: <ErrorPage/>}
 ])
 
 export default router;
