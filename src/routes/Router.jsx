@@ -8,6 +8,8 @@ import Register from "../pages/Authentication/Register";
 import { lazy, Suspense } from "react";
 import Loader from "../util/Loader/Loader";
 import AuthProvider from "../components/Authentication/Context/AuthProvider";
+import PrivateRoute from "./PrivateRoute";
+import Error from "../pages/Error/Error";
 
 const Home = lazy(()=> import("../pages/Home/Home"));
 
@@ -17,7 +19,7 @@ const router = createBrowserRouter([
         element : <AuthProvider><Layout></Layout></AuthProvider>,
         children: [
             { path: '/', element: (<Suspense fallback={<Loader/>}><Home/></Suspense>) },
-            { path: '/:id', element: <SinglePage/> },          
+            { path: '/:id', element: <PrivateRoute><SinglePage/></PrivateRoute>},          
             { path: 'world', element: <Upcoming/> },
             { path: 'business', element: <Upcoming/> },
             { path: 'arts', element: <Upcoming/> },
@@ -35,7 +37,8 @@ const router = createBrowserRouter([
             { path: 'login', element: <LogIn/> },
             { path: 'register', element: <Register/> },
         ]
-    }
+    },
+    {path: '*', element: <Error/>}
 ])
 
 export default router;

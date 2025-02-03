@@ -10,12 +10,22 @@ const AuthProvider = ({ children }) => {
 
   //create new user
   const createUser = (email, password) => {
-    return createUserWithEmailAndPassword( auth, email, password )
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password)
   }
 
   //Login user
   const loginUser = (email, password) => {
-    return signInWithEmailAndPassword( auth, email, password )
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password)
+  }
+
+   // Signout
+   const logout = () => {
+    setLoading(true);
+    signOut(auth)
+      .then(() => console.log("User signed out"))
+      .catch((error) => console.error(error));
   }
 
   //get current user
@@ -28,14 +38,9 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, [])
 
-  // Signout
-  const logout = () => {
-    signOut(auth)
-      .then(() => console.log("User signed out"))
-      .catch((error) => console.error(error));
-  }
+ 
 
-  const authInfo = { user, logout, createUser, loginUser }
+  const authInfo = { user, logout, createUser, loginUser, loading }
   return (
     <AuthContext.Provider value={authInfo}>
       {children}

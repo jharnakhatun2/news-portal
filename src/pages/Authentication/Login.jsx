@@ -1,25 +1,30 @@
 import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "../../util/PasswordInput/PasswordInput";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
 import auth from "../../firebase/firebase.init";
 import { authApp } from "../../components/Authentication/Context/AuthProvider";
 
 
 const LogIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [firebaseError, setFirebaseError] = useState("");
+  const [showMessage, setShowMessage] = useState("");
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
   const navigate = useNavigate();
-  const {loginUser} = authApp();
+  const { loginUser } = authApp();
+  const emailRef = useRef(null);
+  
 
   // google login
   const handleGoogleSignup = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         console.log("User Info:", result.user);
+        console.log("User Info:", result.user.photoURL);
         navigate('/');
 
       })
@@ -29,8 +34,8 @@ const LogIn = () => {
       });
   }
 
-   //facebook signup
-   const handleFacebookSignup = () => {
+  //facebook signup
+  const handleFacebookSignup = () => {
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
         console.log("User Info:", result.user);
@@ -43,16 +48,46 @@ const LogIn = () => {
   }
 
   //form submit
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    setFirebaseError('');
     console.log(`Email : ${data.email}, Password : ${data.password}`);
-    loginUser(data.email, data.password)
-    .then((userCredential) => {
-      console.log(userCredential.user);
-      navigate('/');
-    })
-    .catch((error) => console.error(error));
+    try {
+      await loginUser(data.email, data.password)
+        .then((userCredential) => {
+          console.log(userCredential.user);
+          navigate('/');
+        })
+    } catch (error) {
+      console.error(error.message)
+      setFirebaseError("Your Email or Password is Invalid")
+    }
+    //reset the field
     reset()
   }
+
+  //Forget password
+  const handleForgetPassword = () => {
+    setShowMessage('');
+    const email = emailRef.current.value;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    //email validation
+    if (!email) {
+      console.log('Send reset email');
+      return;
+    } else if (!emailRegex.test(email)) {
+      console.log("Please write a valid email");
+      return;
+    }
+
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        setShowMessage("Please Check your email and reset the password");
+        reset();
+      })
+      .catch((error) => console.error(error.message))
+  }
+
   return (
     <>
       <div className="hero">
@@ -72,6 +107,7 @@ const LogIn = () => {
                       message: "Not match email format",
                     },
                   })}
+                  ref={emailRef}
                   type="email" placeholder="email" className="input input-bordered" />
               </div>
               {errors.email && <small className="text-red-500" role="alert">{errors.email.message}</small>}
@@ -88,8 +124,23 @@ const LogIn = () => {
 
               {/* Forget password */}
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                <a href="#" onClick={handleForgetPassword}
+                  className="label-text-alt link link-hover">Forgot password?</a>
               </label>
+
+              {/* Firebase Error Display */}
+              {firebaseError && (
+                <small className="text-red-500 mb-4">
+                  {firebaseError}
+                </small>
+              )}
+              {/* Email send message */}
+              {showMessage && (
+                <small className="text-red-500 mb-4">
+                  {showMessage}
+                </small>
+              )}
+
               <div className="form-control mt-3">
                 <button className="btn btn-neutral">Login</button>
               </div>
