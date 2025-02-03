@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../../firebase/firebase.init";
+import { authApp } from "../../components/Authentication/Context/AuthProvider";
 
 
 const LogIn = () => {
@@ -12,6 +13,7 @@ const LogIn = () => {
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
   const navigate = useNavigate();
+  const {loginUser} = authApp();
 
   // google login
   const handleGoogleSignup = () => {
@@ -42,7 +44,13 @@ const LogIn = () => {
 
   //form submit
   const onSubmit = (data) => {
-    console.log(`Email : ${data.email}, Password : ${data.password}`)
+    console.log(`Email : ${data.email}, Password : ${data.password}`);
+    loginUser(data.email, data.password)
+    .then((userCredential) => {
+      console.log(userCredential.user);
+      navigate('/');
+    })
+    .catch((error) => console.error(error));
     reset()
   }
   return (

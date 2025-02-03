@@ -10,11 +10,11 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
-  const { user } = authApp();
+  const { user, createUser } = authApp();
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
   const navigate = useNavigate();
-  
+
 
   // google signup
   const handleGoogleSignup = () => {
@@ -44,7 +44,13 @@ const Register = () => {
 
   // form submit
   const onSubmit = (data) => {
-    console.log(`Email : ${data.email}, Password : ${data.password}, confirm-pass : ${data.confirmPassword}`)
+    console.log(`Email : ${data.email}, Password : ${data.password}, confirm-pass : ${data.confirmPassword}`);
+    createUser(data.email, data.password)
+      .then((userCredential) => {
+        console.log(userCredential.user);
+        navigate('/');
+      })
+      .catch((error) => console.error(error));
     reset()
   }
 
