@@ -2,9 +2,10 @@ import moment from "moment";
 import React from "react"
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import { authApp } from "../Authentication/Context/AuthProvider";
 
 const LargeHeader = () => {
-    const login = false;
+    const {user, logout} = authApp();
     return (
         <>
             <div className="hidden lg:block" >
@@ -15,8 +16,11 @@ const LargeHeader = () => {
                     </div>
 
                     <img src="/logo.png" alt="logo" className="w-2/5 h-auto" />
-                    <div>
-                        {login ? <svg className="w-5 h-5" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#000000"></path> <path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#000000"></path> </g></svg> : <Link to='login' className="bg-slate-400 px-4 py-1 text-white text-xs rounded-sm">LOG IN</Link>}
+                    <div className="flex items-center gap-5">
+                        {user ? <span onClick={logout} className="bg-slate-400 px-4 py-1 text-white text-xs rounded-sm cursor-pointer">LOG OUT</span> : <Link to='login' className="bg-slate-400 px-4 py-1 cursor-pointer text-white text-xs rounded-sm">LOG IN</Link>}
+                        
+                        {/* if login then show user sign */}
+                        {user && <svg className="w-5 h-5 cursor-pointer" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#000000"></path> <path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#000000"></path> </g></svg> }
                     </div>
 
                 </div>
