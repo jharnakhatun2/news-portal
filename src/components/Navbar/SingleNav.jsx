@@ -24,9 +24,15 @@ const SingleNav = () => {
     <>
       <div className="border-double border-b-4">
         <div className="flex justify-between items-center py-3">
+          {/* menu icon */}
           <div onClick={handleToggleMenu} className="transition-opacity duration-700 ease-in-out">
-            <svg className="w-7 h-7 cursor-pointer" fill="#000000" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><title>Artboard</title><path d="M768 306.2V383H256v-76.8h512zM256 536.6h512v-76.8H256v76.8zm0 153.6h512v-76.8H256v76.8z" fillRule="evenodd"></path></g></svg>
+            {toggleMenu ? <svg className="w-6 h-6" fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M18.3 5.7c-.4-.4-1-.4-1.4 0L12 10.6 7.1 5.7c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4L10.6 12l-4.9 4.9c-.4.4-.4 1 0 1.4s1 .4 1.4 0L12 13.4l4.9 4.9c.4.4 1 .4 1.4 0s.4-1 0-1.4L13.4 12l4.9-4.9c.4-.4.4-1 0-1.4z" />
+            </svg> : <svg className="w-7 h-7 cursor-pointer" fill="#000000" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><title>Artboard</title><path d="M768 306.2V383H256v-76.8h512zM256 536.6h512v-76.8H256v76.8zm0 153.6h512v-76.8H256v76.8z" fillRule="evenodd"></path></g></svg>
+            }
           </div>
+
+          {/* logo */}
           <Link to='/' className="w-6/12 sm:w-3/12 h-auto" >
             <img src="/logo.png" alt="logo" /></Link>
 
@@ -40,7 +46,7 @@ const SingleNav = () => {
       </div>
 
       {toggleMenu && <nav className="absolute sm:w-1/6 h-screen bg-white">
-        <ul className="text-sm space-y-4 bg-white">
+        <ul className="text-sm space-y-4 bg-white px-2 pb-2">
           {categoryData?.map((item) => (
 
             <Link to={`/${item.url.replace(/^\//, '')}`} key={item.id}

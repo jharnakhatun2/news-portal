@@ -11,7 +11,7 @@ const Home = () => {
   }
   return (
     <div>
-      <Header onToggleMenu={handleToggleMenu}/>
+      <Header onToggleMenu={handleToggleMenu} toggleMenu={toggleMenu}/>
       <Navbar toggleMenu={toggleMenu}/>
       <HomeLayout/>
       <Footer/>
