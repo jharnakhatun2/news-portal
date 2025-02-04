@@ -45,7 +45,7 @@ const LeftPost = () => {
             <ReusePost data={secondData}>
                 {(item) => (
                     <div className="cursor-pointer">
-                        <Link to={`/${item.id}`} state={{post:item}}>
+                        <Link to={`/content/${item.id}`} state={{post:item}}>
                         <h2 className="font-serif font-medium text-black text-lg hover:text-gray-600">{item.title}</h2>
                         <p className="font-sans text-gray-500">{item.short_desc}</p>
                         <small className="uppercase text-xs text-gray-600">{item.readTime}</small>

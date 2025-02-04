@@ -77,7 +77,7 @@ const Well = () => {
             >
                 {wellData.map((item, index) => (
                     <SwiperSlide key={item.id} className={`${index !== wellData.length - 1 && 'border-r'} md:pr-4 lg:pr-5 mb-2 md:mb-5`}>
-                        <Link to={`/${item.id}`} state={{ post: item }} className="space-y-3 lg:space-y-2 ">
+                        <Link to={`/content/${item.id}`} state={{ post: item }} className="space-y-3 lg:space-y-2 ">
                             <div>
                                 <img
                                     src={item.image}

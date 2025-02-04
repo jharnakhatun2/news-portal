@@ -20,7 +20,7 @@ const ImageMore = () => {
     return (
         <>
         {data?.map((item) => (
-            <Link to={`/${item.id}`} state={{post:item}} key={item.id} className="md:max-w-lg xl:max-w-xl sm:flex flex-col-reverse justify-end xl:items-center md:pl-5 md:border-l cursor-pointer">
+            <Link to={`/content/${item.id}`} state={{post:item}} key={item.id} className="md:max-w-lg xl:max-w-xl sm:flex flex-col-reverse justify-end xl:items-center md:pl-5 md:border-l cursor-pointer">
             
             <div className="md:py-5">
                 <h2 className="font-serif text-black text-lg hover:text-gray-600">{item.title}</h2>

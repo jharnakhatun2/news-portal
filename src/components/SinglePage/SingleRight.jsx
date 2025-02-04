@@ -4,7 +4,7 @@ const SingleRight = () => {
     return (
         <div className="w-full md:w-auto pt-10 md:pt-0">
             <div>
-                <h3 className="font-serif text-lg bg-gray-300 inline px-3 py-2">LATEST NEWS</h3>
+                <h3 className="font-serif text-sm bg-gray-300 inline px-3 py-2">LATEST NEWS</h3>
                 <div className="divider"></div>
                 <ul>
 
@@ -32,7 +32,7 @@ const SingleRight = () => {
                 </ul>
             </div>
             <div className="py-10">
-                <h3 className="font-serif text-lg bg-gray-300 inline px-3 py-2">MOST READ</h3>
+                <h3 className="font-serif text-sm bg-gray-300 inline px-3 py-2">MOST READ</h3>
                 <div className="divider"></div>
                 <ul>
                     <div className="flex items-center">

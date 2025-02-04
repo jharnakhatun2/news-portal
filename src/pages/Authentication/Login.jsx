@@ -9,14 +9,15 @@ import { authApp } from "../../components/Authentication/Context/AuthProvider";
 
 const LogIn = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [firebaseError, setFirebaseError] = useState("");
+  const [firebaseError, setFirebaseError] = useState('');
   const [showMessage, setShowMessage] = useState("");
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
+  const watchEmail = watch('email');
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
   const navigate = useNavigate();
-  const { loginUser } = authApp();
-  const emailRef = useRef(null);
+  const {loginUser } = authApp();
+  
   
 
   // google login
@@ -47,46 +48,43 @@ const LogIn = () => {
       });
   }
 
-  //form submit
-  const onSubmit = async (data) => {
-    setFirebaseError('');
-    console.log(`Email : ${data.email}, Password : ${data.password}`);
-    try {
-      await loginUser(data.email, data.password)
-        .then((userCredential) => {
-          console.log(userCredential.user);
-          navigate('/');
-        })
-    } catch (error) {
-      console.error(error.message)
-      setFirebaseError("Your Email or Password is Invalid")
-    }
-    //reset the field
-    reset()
+  
+//forget password
+const handleForgetPassword = async () => {
+  
+  if (!watchEmail) {
+    setShowMessage('Please enter your email');
+    return;
   }
-
-  //Forget password
-  const handleForgetPassword = () => {
-    setShowMessage('');
-    const email = emailRef.current.value;
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-    //email validation
-    if (!email) {
-      console.log('Send reset email');
-      return;
-    } else if (!emailRegex.test(email)) {
-      console.log("Please write a valid email");
-      return;
-    }
-
-    sendPasswordResetEmail(auth, email)
-      .then(() => {
-        setShowMessage("Please Check your email and reset the password");
-        reset();
-      })
-      .catch((error) => console.error(error.message))
+  
+  try {
+    await sendPasswordResetEmail(auth, watchEmail);
+    setShowMessage('Please check your email to reset the password');
+    reset({ email: '' });
+  } catch (error) {
+    setFirebaseError(error.message);
   }
+};
+
+  // Form submit
+const onSubmit = async (data) => {
+  setFirebaseError(''); 
+
+  try {
+    const userCredential = await loginUser(data.email, data.password);
+    console.log(userCredential.user);
+    navigate('/');
+
+    // Reset fields and clear errors only after successful login
+    reset();
+  } catch (error) {
+    console.error(error.message);
+    setFirebaseError(error.message);
+  }
+};
+
+
+ 
 
   return (
     <>
@@ -101,13 +99,13 @@ const LogIn = () => {
                 </label>
                 <input
                   {...register("email", {
-                    required: "required",
+                    required: "Email required",
                     pattern: {
                       value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
                       message: "Not match email format",
                     },
                   })}
-                  ref={emailRef}
+                  
                   type="email" placeholder="email" className="input input-bordered" />
               </div>
               {errors.email && <small className="text-red-500" role="alert">{errors.email.message}</small>}
@@ -123,8 +121,8 @@ const LogIn = () => {
               {errors.password && <small className="text-red-500" role="alert">{errors.password.message}</small>}
 
               {/* Forget password */}
-              <label className="label">
-                <a href="#" onClick={handleForgetPassword}
+              <label className="label" onClick={handleForgetPassword}>
+                <a href="#"
                   className="label-text-alt link link-hover">Forgot password?</a>
               </label>
 
@@ -144,7 +142,7 @@ const LogIn = () => {
               <div className="form-control mt-3">
                 <button className="btn btn-neutral">Login</button>
               </div>
-              <small className="text-center text-xs">Dont’t Have An Account ? <Link to='/register' className="text-red-500 link link-hover">Register</Link></small>
+              <small className="text-center text-xs">Dont’t Have An Account ? <Link to='/auth/register' className="text-red-500 link link-hover">Register</Link></small>
             </form>
           </div>
           <div className="hidden lg:flex divider divider-horizontal">OR</div>

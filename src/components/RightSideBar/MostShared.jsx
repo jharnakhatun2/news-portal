@@ -53,7 +53,7 @@ const MostShared = () => {
     return (
         <ReusePost data={shareData}>
             {(item) => (
-                <Link to={`/${item.id}`} state={{post:item}} className="cursor-pointer flex gap-2 justify-between">
+                <Link to={`/content/${item.id}`} state={{post:item}} className="cursor-pointer flex gap-2 justify-between">
                     <div className="w-3/4">
                         <h2 className="font-serif text-black hover:text-gray-600">{item.title}</h2>
                         {item.readTime && <small className="uppercase text-xs text-gray-600">{item.readTime}</small>}

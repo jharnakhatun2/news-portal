@@ -10,6 +10,7 @@ import Loader from "../util/Loader/Loader";
 import AuthProvider from "../components/Authentication/Context/AuthProvider";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Profile from "../pages/Profile/Profile";
 
 
 const Home = lazy(()=> import("../pages/Home/Home"));
@@ -19,8 +20,8 @@ const router = createBrowserRouter([
         path : '/' ,
         element : <AuthProvider><Layout></Layout></AuthProvider>,
         children: [
-            { path: '/', element: (<Suspense fallback={<Loader/>}><Home/></Suspense>) },
-            { path: '/:id', element: <PrivateRoute><SinglePage/></PrivateRoute>},          
+            { path: '/', element: (<Suspense fallback={<Loader/>}><Home/></Suspense>)},
+            { path: '/content/:id', element:<PrivateRoute><SinglePage/></PrivateRoute>},          
             { path: 'world', element: <Upcoming/> },
             { path: 'business', element: <Upcoming/> },
             { path: 'arts', element: <Upcoming/> },
@@ -29,10 +30,11 @@ const router = createBrowserRouter([
             { path: 'entertainment', element: <Upcoming/> },
             { path: 'culture', element: <Upcoming/> },
             { path: 'cooking', element: <Upcoming/> },
+            { path: 'profile', element: <Profile/> },
         ]
     },
     {
-        path : '/',
+        path : '/auth',
         element: <AuthProvider><FormLayout></FormLayout></AuthProvider>,
         children: [
             { path: 'login', element: <LogIn/> },

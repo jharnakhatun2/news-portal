@@ -61,7 +61,7 @@ const RightPost = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 lg:pl-5">
             {opinionData?.map((item, index) => (
-                <Link to={`/${item.id}`} state={{post:item}}
+                <Link to={`/content/${item.id}`} state={{post:item}}
                     key={item.id} 
                     className={`pr-5 lg:pr-0 ${index % 2 !== 0 ? 'md:pl-5 lg:pl-0 md:border-l lg:border-l-0' : ''}`}
                 >

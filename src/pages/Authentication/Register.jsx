@@ -9,6 +9,7 @@ import { FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from "fireb
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showError, setShowError] = useState('');
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
   const { user, createUser } = authApp();
   const googleProvider = new GoogleAuthProvider();
@@ -16,6 +17,7 @@ const Register = () => {
   const navigate = useNavigate();
 
 
+  
   // google signup
   const handleGoogleSignup = () => {
     signInWithPopup(auth, googleProvider)
@@ -44,13 +46,18 @@ const Register = () => {
 
   // form submit
   const onSubmit = (data) => {
-    console.log(`Email : ${data.email}, Password : ${data.password}, confirm-pass : ${data.confirmPassword}`);
-    createUser(data.email, data.password)
-      .then((userCredential) => {
-        console.log(userCredential.user);
+    setShowError('');
+    const {email, password, confirmPassword} = data ;
+    console.log(`Email : ${email}, Password : ${password}, confirm-pass : ${confirmPassword}`);
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
         navigate('/');
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setShowError(error.message);
+      });
     reset()
   }
 
@@ -113,6 +120,13 @@ const Register = () => {
                 </label>
               </div>
               {errors.terms && <small className="text-red-500">{errors.terms.message}</small>}
+
+              {/* Email send message */}
+              {showError && (
+                <small className="text-red-500 mb-4">
+                  {showError}
+                </small>
+              )}
 
               <div className="form-control mt-3">
                 <button className="btn btn-neutral">Create Account</button>

@@ -25,7 +25,7 @@ const RightSideBar = () => {
       {/* 1st row */}
       {
         firstRowData?.map((item)=>(
-          <Link to={`/${item.id}`} state={{post:item}} key={item.id} className="lg:flex flex-col-reverse space-y-3 lg:space-y-0">
+          <Link to={`/content/${item.id}`} state={{post:item}} key={item.id} className="lg:flex flex-col-reverse space-y-3 lg:space-y-0">
         <div className="space-y-2 pt-2">
           <h2 className="text-2xl font-serif">{item.title}</h2>
           <p className="text-sm text-gray-600">{item.short_desc}</p>

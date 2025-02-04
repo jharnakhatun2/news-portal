@@ -7,9 +7,9 @@ const ReuseNews = ({ data }) => {
       {data?.map((item) => (
         <div key={item.id} className="font-serif text-sm space-y-2 hover:cursor-pointer">
           <h5 className="font-sans text-black font-medium">{item.topic}</h5>
-          <img src={item.image} alt="news image" />
+          <img src={`/${item.image}`} alt="news image" />
           {item.posts?.map((postItem) => (
-            <Link to={`/${postItem.id}`} state={{ post: postItem }} key={postItem.id}>
+            <Link to={`/content/${postItem.id}`} state={{ post: postItem }} key={postItem.id}>
               <p className="hover:text-gray-500 py-1">{postItem.title}</p>
             </Link>
           ))}

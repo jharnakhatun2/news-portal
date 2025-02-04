@@ -44,7 +44,7 @@ const GamePost = () => {
             <ReusePost data={secondData}>
                 {(item) => (
                     <div className="cursor-pointer">
-                        <Link to={`/${item.id}`} state={{post:item}}>
+                        <Link to={`/content/${item.id}`} state={{post:item}}>
                             {item.category && item.time ? <div className="text-red-500">
                                 <small className="uppercase text-xs  font-bold mr-3">{item.category}</small ><small>{item.time}</small>
                             </div> : ''}

@@ -46,7 +46,7 @@ const Opinion = () => {
         <ReusePost data={opinionData}>
             {
                 (item) => (
-                    <Link to={`/${item.id}`} state={{post:item}} className="cursor-pointer">
+                    <Link to={`/content/${item.id}`} state={{post:item}} className="cursor-pointer">
                         <p className="uppercase text-gray-600 text-xs">{item.author}</p>
                         <h2 className="font-oswald text-black text-lg hover:text-gray-600">{item.title}</h2>
                         <small className="uppercase text-xs text-gray-600">{item.readTime}</small>

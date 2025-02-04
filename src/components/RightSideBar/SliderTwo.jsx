@@ -52,7 +52,7 @@ const SliderTwo = () => {
     return (
         <SwiperReuse data={sliderData} slidesPerView={2}>
             {(item) => (
-                <Link to={`/${item.id}`} state={{post:item}}>
+                <Link to={`/content/${item.id}`} state={{post:item}}>
                  <p className="uppercase text-gray-600 text-xs">{item.author}</p>
                  <h2 className="font-oswald text-black text-md hover:text-gray-600">{item.title}</h2>                     
                  <small className="uppercase text-xs text-gray-600">{item.readTime}</small>   

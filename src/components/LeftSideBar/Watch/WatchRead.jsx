@@ -55,7 +55,7 @@ const WatchRead = () => {
             <div className="pt-3 pb-5">
                 <div className="grid grid-cols-2 gap-5 ">
                     {watchData?.map(item =>(
-                        <Link to={`/${item.id}`} key={item.id} state={{ post: item }} >
+                        <Link to={`/content/${item.id}`} key={item.id} state={{ post: item }} >
                         <div className="cursor-pointer md:flex flex-row-reverse md:gap-5 justify-between md:divide-y pt-2">
                         <img src={item.image} alt="" className="md:w-32 md:h-24" />
                         <div className="w-3/4">
