@@ -11,7 +11,7 @@ const LargeNav = ({ categoryData }) => {
             key={item.id}
             className=" cursor-pointer"
           >
-            {item.name}
+          {item?.name}
           </Link>
         ))}
       </ul>
