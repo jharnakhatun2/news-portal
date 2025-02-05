@@ -1,6 +1,7 @@
 import React from "react"
 import { authApp } from "../../components/Authentication/Context/AuthProvider";
 import PasswordUpdate from "./PasswordUpdate";
+import ProfileDiv from "../../util/ProfileDiv/ProfileDiv";
 
 const ProfileBody = () => {
   const { user } = authApp();
@@ -10,11 +11,10 @@ const ProfileBody = () => {
       <div className="max-w-4xl w-full bg-white rounded-2xl shadow-lg p-8">
         <div className="flex justify-between items-baseline">
           <h2 className="text-lg sm:text-xl text-gray-800">Your profile</h2>
-          <img src={user.photoURL} alt="Profile Image" className="rounded-full" />
+          {user?.photoURL ? <img src="/user.png" alt="Profile Image" className="rounded-full" /> : <img src={user?.photoURL} alt="Profile Image" className="rounded-full" /> }
         </div>
-
         <div className="divider divider-neutral"></div>
-        {/* Email Update */}
+        {/* Name Update */}
         <div>
           <div className="flex justify-between text-black text-sm">
             <h3>Name</h3>
@@ -23,23 +23,11 @@ const ProfileBody = () => {
           <p className="text-gray-400">{user.displayName ?? "No name added"}</p>
         </div>
         <div className="divider"></div>
-        {/* Password Update */}
-        <div>
-          <div className="flex justify-between text-black text-sm">
-            <h3>Username</h3>
-            <button className="underline">Update</button>
-          </div>
-          <p className="text-gray-400 ">No username added</p>
-        </div>
+        {/* User name Update */}
+        <ProfileDiv label='User name' placeholder='Enter user name' storageKey='username'/>
         <div className="divider"></div>
-        {/* Google account Disconnect */}
-        <div>
-          <div className="flex justify-between text-black text-sm">
-            <h3>Your Location</h3>
-            <button className="underline">Update</button>
-          </div>
-          <p className="text-gray-400 ">No places added</p>
-        </div>
+        {/* location update */}
+        <ProfileDiv label='Your Location' placeholder='Enter location name' storageKey='location'/>
 
 
         <h2 className="text-lg sm:text-xl text-gray-800 pt-10">Account information</h2>
@@ -54,8 +42,8 @@ const ProfileBody = () => {
         </div>
         <div className="divider"></div>
         {/* Password Update */}
-        <PasswordUpdate/>
-        
+        <PasswordUpdate />
+
         <div className="divider"></div>
         {/* Google account Disconnect */}
         <div>
