@@ -11,6 +11,7 @@ import AuthProvider from "../components/Authentication/Context/AuthProvider";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Profile from "../pages/Profile/Profile";
+import { ToastContainer } from "react-toastify";
 
 
 const Home = lazy(()=> import("../pages/Home/Home"));
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
             { path: 'entertainment', element: <Upcoming/> },
             { path: 'culture', element: <Upcoming/> },
             { path: 'cooking', element: <Upcoming/> },
-            { path: 'profile', element: <Profile/> },
+            { path: 'profile', element: <PrivateRoute><Profile/></PrivateRoute> },
         ]
     },
     {
