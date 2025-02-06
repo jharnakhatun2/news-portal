@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProfileDiv = ({ label, placeholder, storageKey }) => {
     const [toggleBtn, setToggleBtn] = useState(false);
@@ -21,7 +23,13 @@ const ProfileDiv = ({ label, placeholder, storageKey }) => {
         if (data) {
             setSavedData(data);
             localStorage.setItem(storageKey, data);
+            toast.success(`${label} updated successfully`, {
+                position: "bottom-right",
+                autoClose: 2000,
+                style: { backgroundColor: '#333', color: '#fff' },
+              });
         }
+        
         setToggleBtn(false);
     }
 
@@ -39,7 +47,7 @@ const ProfileDiv = ({ label, placeholder, storageKey }) => {
             </div>
 
             {toggleBtn ?
-                <input type="text" value={fieldData} onChange={(e) => setFieldData(e.target.value)} placeholder={placeholder} className="border rounded p-1 outline-none" /> : <p className="text-gray-400 ">{savedData || `No ${label ? label.toLowerCase() : "label"} added`}</p>}
+                <input type="text" value={fieldData} onChange={(e) => setFieldData(e.target.value)} placeholder={savedData || placeholder} className="border rounded p-1 outline-none" /> : <p className="text-gray-400 ">{savedData || `No ${label ? label.toLowerCase() : "label"} added`}</p>}
 
         </div>
     )
