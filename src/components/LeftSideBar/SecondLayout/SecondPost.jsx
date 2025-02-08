@@ -26,7 +26,7 @@ const secondData = [
 ];
 
 const SecondPost = () => {
-  console.log(secondData)
+  
   return (
     <div>
       <ReusePost data={secondData}>

@@ -10,19 +10,18 @@ import Footer from "../../components/Footer/Footer";
 const SinglePage = () => {
   const location = useLocation();
   const post = location.state?.post;
-console.log(post)
-  
+
 
   return (
     <>
       <SingleNav />
-      <SingleBody post={post}/>
-      
+      <SingleBody post={post} />
+
       <div className="lg:pt-4 pb-10 hidden md:block ">
-      <h2 className="border-t font-sans text-black font-medium pt-7 pb-4 uppercase text-sm">Also read</h2>
+        <h2 className="border-t font-sans text-black font-medium pt-7 pb-4 uppercase text-sm">Also read</h2>
         <Living />
       </div>
-      <Footer/>
+      <Footer />
     </>
   )
 };
