@@ -2,8 +2,10 @@ import React from "react"
 import LargeHeader from "../../components/Header/LargeHeader";
 import SingleNav from "../../components/Navbar/SingleNav";
 import Footer from "../../components/Footer/Footer";
+import usePageTitle from "../../util/PageTitle/usePageTitle";
 
 const Upcoming = () => {
+  usePageTitle();
   return (
     <>
     <SingleNav/>

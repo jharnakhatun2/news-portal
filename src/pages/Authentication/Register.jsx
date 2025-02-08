@@ -7,6 +7,7 @@ import auth from "../../firebase/firebase.init";
 import { FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { toast } from "react-toastify";
 import ShowToastError from "../../util/ShowToastError/ShowToastError";
+import usePageTitle from "../../util/PageTitle/usePageTitle";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -18,8 +19,6 @@ const Register = () => {
   const facebookProvider = new FacebookAuthProvider();
   const location = useLocation();
   const navigate = useNavigate();
-
-
 
   // google signup
   const handleGoogleSignup = () => {
@@ -67,6 +66,8 @@ const Register = () => {
       });
     reset()
   }
+
+  usePageTitle();
 
   return (
     <>

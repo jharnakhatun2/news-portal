@@ -11,7 +11,7 @@ import AuthProvider from "../components/Authentication/Context/AuthProvider";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Profile from "../pages/Profile/Profile";
-import { ToastContainer } from "react-toastify";
+
 
 
 const Home = lazy(()=> import("../pages/Home/Home"));

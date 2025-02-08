@@ -8,6 +8,7 @@ import { authApp } from "../../components/Authentication/Context/AuthProvider";
 import Loader from "../../util/Loader/Loader";
 import { toast } from "react-toastify";
 import ShowToastError from "../../util/ShowToastError/ShowToastError";
+import usePageTitle from "../../util/PageTitle/usePageTitle";
 
 
 const LogIn = () => {
@@ -91,6 +92,7 @@ const LogIn = () => {
     }
   };
 
+  usePageTitle();
 
   return (
     <>

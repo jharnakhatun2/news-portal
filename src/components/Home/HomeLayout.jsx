@@ -5,12 +5,13 @@ import Border from "../../util/Border/Border";
 import MoreNews from "./MoreNews";
 import Well from "../LeftSideBar/Well/Well";
 import NewsAll from "../News/NewsAll";
+import usePageTitle from "../../util/PageTitle/usePageTitle";
 
 
 
 
 const HomeLayout = () => {
-
+usePageTitle();
 
   return (
     <div>
