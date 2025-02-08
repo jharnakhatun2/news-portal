@@ -1,10 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PasswordInput from "../../util/PasswordInput/PasswordInput";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FacebookAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
 import auth from "../../firebase/firebase.init";
 import { authApp } from "../../components/Authentication/Context/AuthProvider";
+import Loader from "../../util/Loader/Loader";
 
 
 const LogIn = () => {
@@ -15,19 +16,19 @@ const LogIn = () => {
   const watchEmail = watch('email');
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
+  const location = useLocation();
   const navigate = useNavigate();
-  const {loginUser } = authApp();
-  
-  
+  const { loginUser } = authApp();
+  console.log(location);
+
 
   // google login
   const handleGoogleSignup = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         console.log("User Info:", result.user);
-        console.log("User Info:", result.user.photoURL);
-        navigate('/');
-
+        // Redirect to the single post page with the preserved state
+        navigate(location.state?.from || '/', { state: { post: location.state?.post } });
       })
       .catch((error) => {
         console.error("Error during sign-in:", error.message);
@@ -40,7 +41,8 @@ const LogIn = () => {
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
         console.log("User Info:", result.user);
-        navigate('/')
+        // Redirect to the single post page with the preserved state
+        navigate(location.state?.from || '/', { state: { post: location.state?.post } });
       })
       .catch((error) => {
         console.error("Error during sign-in:", error.message);
@@ -48,43 +50,47 @@ const LogIn = () => {
       });
   }
 
-  
-//forget password
-const handleForgetPassword = async () => {
-  
-  if (!watchEmail) {
-    setShowMessage('Please enter your email');
-    return;
-  }
-  
-  try {
-    await sendPasswordResetEmail(auth, watchEmail);
-    setShowMessage('Please check your email to reset the password');
-    reset({ email: '' });
-  } catch (error) {
-    setFirebaseError(error.message);
-  }
-};
+
+  //forget password
+  const handleForgetPassword = async () => {
+
+    if (!watchEmail) {
+      setShowMessage('Please enter your email');
+      return;
+    }
+
+    try {
+      await sendPasswordResetEmail(auth, watchEmail);
+      setShowMessage('Please check your email to reset the password');
+      reset({ email: '' });
+    } catch (error) {
+      setFirebaseError(error.message);
+    }
+  };
 
   // Form submit
-const onSubmit = async (data) => {
-  setFirebaseError(''); 
+  const onSubmit = async (data) => {
 
-  try {
-    const userCredential = await loginUser(data.email, data.password);
-    console.log(userCredential.user);
-    navigate('/');
+    setFirebaseError('');
 
-    // Reset fields and clear errors only after successful login
-    reset();
-  } catch (error) {
-    console.error(error.message);
-    setFirebaseError(error.message);
-  }
-};
+    try {
+      const userCredential = await loginUser(data.email, data.password);
+      console.log(userCredential.user);
+
+      // Redirect to the single post page with the preserved state
+      navigate(location.state?.from || '/', { state: { post: location.state?.post } });
+
+      // Reset fields and clear errors only after successful login
+      reset();
+
+    } catch (error) {
+      console.error(error.message);
+      setFirebaseError(error.message);
+    }
+  };
 
 
- 
+
 
   return (
     <>
@@ -105,7 +111,7 @@ const onSubmit = async (data) => {
                       message: "Not match email format",
                     },
                   })}
-                  
+
                   type="email" placeholder="email" className="input input-bordered" />
               </div>
               {errors.email && <small className="text-red-500" role="alert">{errors.email.message}</small>}
@@ -166,3 +172,4 @@ const onSubmit = async (data) => {
 };
 
 export default LogIn;
+

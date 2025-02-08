@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PasswordInput from "../../util/PasswordInput/PasswordInput";
 import { useForm } from "react-hook-form";
 import { authApp } from "../../components/Authentication/Context/AuthProvider";
@@ -14,6 +14,7 @@ const Register = () => {
   const { user, createUser } = authApp();
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
+  const location = useLocation();
   const navigate = useNavigate();
 
 
@@ -23,7 +24,7 @@ const Register = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         console.log("User Info:", result.user);
-        navigate('/')
+        navigate(location?.state ? location.state : '/');
       })
       .catch((error) => {
         console.error("Error during sign-in:", error.message);
@@ -36,7 +37,7 @@ const Register = () => {
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
         console.log("User Info:", result.user);
-        navigate('/')
+        navigate(location?.state ? location.state : '/');
       })
       .catch((error) => {
         console.error("Error during sign-in:", error.message);
@@ -52,7 +53,7 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        navigate('/');
+        navigate(location?.state ? location.state : '/');
       })
       .catch((error) => {
         console.error(error);

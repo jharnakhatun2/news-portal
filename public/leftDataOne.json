@@ -1,10 +1,4 @@
-import React, { useEffect, useState } from "react"
-import ReusePost from "../../../util/ReusePost/ReusePost";
-import { Link } from "react-router-dom";
-import { authApp } from "../../Authentication/Context/AuthProvider";
-import Loader from "../../../util/Loader/Loader";
-
-const postData = [
+[
     {
         "id": "1",
         "image": "avgh.webp",
@@ -27,25 +21,3 @@ const postData = [
         "published_date": "2025-01-25"
     }
 ]
-
-const Posts = () => {
-    
-    return (
-        <div className="md:w-2/5 pb-5 md:pb-0">
-        <ReusePost data={postData}>
-            {(item) => (
-                <div className="cursor-pointer">
-                    <Link to={`/content/${item.id}`} state={{ post: item }}>
-                    <p className="uppercase text-black text-xs">{item.category}</p>
-                    <h2 className="font-serif text-black text-xl hover:text-gray-500">{item.title}</h2>
-                    <p className="font-oswald text-gray-500 text-sm py-1">{item.short_desc}</p>
-                    <small className="uppercase text-xs text-gray-500">{item.readTime}</small>
-                    </Link>
-                </div>
-            )}
-        </ReusePost>
-        </div>
-    )
-};
-
-export default Posts;

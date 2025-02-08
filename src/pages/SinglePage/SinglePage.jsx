@@ -6,9 +6,11 @@ import { useLocation } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 
 
+
 const SinglePage = () => {
   const location = useLocation();
   const post = location.state?.post;
+console.log(post)
   
 
   return (

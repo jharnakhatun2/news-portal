@@ -8,16 +8,10 @@ import NewsAll from "../News/NewsAll";
 
 
 
+
 const HomeLayout = () => {
-  const [newsData, setNewsData] = useState(null)
-  useEffect(() => {
-    fetch('news.json')
-      .then(res => res.json())
-      .then(data => {
-        setNewsData(data);
-      })
-      .catch(err => console.error(err))
-  }, [])
+
+
   return (
     <div>
       <div className="lg:flex justify-between gap-2 py-5">
