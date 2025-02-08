@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
 import ReusePost from "../../../util/ReusePost/ReusePost";
 import { Link } from "react-router-dom";
-import { authApp } from "../../Authentication/Context/AuthProvider";
-import Loader from "../../../util/Loader/Loader";
+
 
 const postData = [
     {

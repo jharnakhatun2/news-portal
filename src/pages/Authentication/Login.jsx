@@ -19,8 +19,6 @@ const LogIn = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { loginUser } = authApp();
-  console.log(location);
-
 
   // google login
   const handleGoogleSignup = () => {
@@ -72,9 +70,10 @@ const LogIn = () => {
   const onSubmit = async (data) => {
 
     setFirebaseError('');
+    const { email, password } = data;
 
     try {
-      const userCredential = await loginUser(data.email, data.password);
+      const userCredential = await loginUser(email, password);
       console.log(userCredential.user);
 
       // Redirect to the single post page with the preserved state
@@ -88,8 +87,6 @@ const LogIn = () => {
       setFirebaseError(error.message);
     }
   };
-
-
 
 
   return (

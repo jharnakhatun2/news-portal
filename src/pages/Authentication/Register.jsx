@@ -18,13 +18,13 @@ const Register = () => {
   const navigate = useNavigate();
 
 
-  
+
   // google signup
   const handleGoogleSignup = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         console.log("User Info:", result.user);
-        navigate(location?.state ? location.state : '/');
+        navigate(location.state?.from || '/', { state: { post: location.state?.post } });
       })
       .catch((error) => {
         console.error("Error during sign-in:", error.message);
@@ -37,7 +37,7 @@ const Register = () => {
     signInWithPopup(auth, facebookProvider)
       .then((result) => {
         console.log("User Info:", result.user);
-        navigate(location?.state ? location.state : '/');
+        navigate(location.state?.from || '/', { state: { post: location.state?.post } });
       })
       .catch((error) => {
         console.error("Error during sign-in:", error.message);
@@ -48,12 +48,12 @@ const Register = () => {
   // form submit
   const onSubmit = (data) => {
     setShowError('');
-    const {email, password, confirmPassword} = data ;
+    const { email, password, confirmPassword } = data;
     console.log(`Email : ${email}, Password : ${password}, confirm-pass : ${confirmPassword}`);
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        navigate(location?.state ? location.state : '/');
+        navigate(location.state?.from || '/', { state: { post: location.state?.post } });
       })
       .catch((error) => {
         console.error(error);
