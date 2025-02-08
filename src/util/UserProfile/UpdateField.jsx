@@ -27,7 +27,7 @@ const UpdateField = ({ label, type = "text", currentValue, updateHandler, placeh
       toast.error(`Failed to update ${label ? label.toLowerCase() : "label"}`, {
         position: "bottom-right",
         autoClose: 2000,
-        style: { backgroundColor: '#FF0000', color: '#fff' },
+        style: { backgroundColor: '#A32727', color: '#fff' },
       });
     }
   };

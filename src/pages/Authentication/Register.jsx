@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { authApp } from "../../components/Authentication/Context/AuthProvider";
 import auth from "../../firebase/firebase.init";
 import { FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { toast } from "react-toastify";
+import ShowToastError from "../../util/ShowToastError/ShowToastError";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,6 +31,7 @@ const Register = () => {
       .catch((error) => {
         console.error("Error during sign-in:", error.message);
         console.error("Error code:", error.code);
+        ShowToastError(error.message);
       });
   }
 
@@ -42,6 +45,7 @@ const Register = () => {
       .catch((error) => {
         console.error("Error during sign-in:", error.message);
         console.error("Error code:", error.code);
+        ShowToastError(error.message);
       });
   }
 
@@ -53,11 +57,13 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        toast.success('Registration Successful ! ', {position: "bottom-right"});
         navigate(location.state?.from || '/', { state: { post: location.state?.post } });
       })
       .catch((error) => {
         console.error(error);
         setShowError(error.message);
+        ShowToastError(error.message);
       });
     reset()
   }

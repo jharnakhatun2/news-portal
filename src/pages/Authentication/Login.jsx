@@ -6,6 +6,8 @@ import { FacebookAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signI
 import auth from "../../firebase/firebase.init";
 import { authApp } from "../../components/Authentication/Context/AuthProvider";
 import Loader from "../../util/Loader/Loader";
+import { toast } from "react-toastify";
+import ShowToastError from "../../util/ShowToastError/ShowToastError";
 
 
 const LogIn = () => {
@@ -31,6 +33,7 @@ const LogIn = () => {
       .catch((error) => {
         console.error("Error during sign-in:", error.message);
         console.error("Error code:", error.code);
+        ShowToastError(error.message);
       });
   }
 
@@ -45,6 +48,7 @@ const LogIn = () => {
       .catch((error) => {
         console.error("Error during sign-in:", error.message);
         console.error("Error code:", error.code);
+        ShowToastError(error.message);
       });
   }
 
@@ -63,6 +67,7 @@ const LogIn = () => {
       reset({ email: '' });
     } catch (error) {
       setFirebaseError(error.message);
+      ShowToastError(error.message);
     }
   };
 
@@ -75,16 +80,14 @@ const LogIn = () => {
     try {
       const userCredential = await loginUser(email, password);
       console.log(userCredential.user);
-
       // Redirect to the single post page with the preserved state
       navigate(location.state?.from || '/', { state: { post: location.state?.post } });
-
       // Reset fields and clear errors only after successful login
       reset();
-
     } catch (error) {
       console.error(error.message);
       setFirebaseError(error.message);
+      ShowToastError(error.message);
     }
   };
 
