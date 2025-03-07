@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element : <AuthProvider><Layout></Layout></AuthProvider>,
         children: [
             { path: '/', element: (<Suspense fallback={<Loader/>}><Home/></Suspense>)},
-            { path: '/content/:id', element:<PrivateRoute><SinglePage/></PrivateRoute>},          
+            { path: '/content/:id', element:<SinglePage/>},          
             { path: 'world', element: <Upcoming/> },
             { path: 'business', element: <Upcoming/> },
             { path: 'arts', element: <Upcoming/> },
