@@ -5,9 +5,11 @@ const SingleLeft = ({ post }) => {
   return (
     <div className="w-full md:max-w-4xl">
       <div className="space-y-1">
-        <h1 className="text-xl md:text-2xl font-medium font-serif text-gray-800 pt-4 md:pt-0">{post?.title}</h1>
-        <p className="font-serif text-gray-600">Published : <span>{post?.published_date}</span></p>
-        <p className="text-red-500 font-oswald">Dragon News Online Report</p>
+        <h1 className="text-xl md:text-2xl font-medium font-serif text-gray-900 pt-4 md:pt-0">{post?.title}</h1>
+        <div className="sm:flex sm:space-x-2">
+        <p className="font-serif text-gray-600">Published : <span className="text-red-500">{post?.published_date},</span></p>
+        <p className="text-red-500 font-oswald text-sm">Dragon News Online Report</p>
+        </div>
       </div>
       <div className="py-5">
         <img
