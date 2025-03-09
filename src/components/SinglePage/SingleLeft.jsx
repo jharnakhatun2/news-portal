@@ -1,4 +1,5 @@
 import React from "react"
+import Comment from "../Comment/Comment";
 
 const SingleLeft = ({ post }) => {
 
@@ -24,6 +25,8 @@ const SingleLeft = ({ post }) => {
         <p>{post?.desc}</p>
         <p className="font-poppins text-red-500 text-sm mt-1">{post?.readTime}</p>
       </div>
+
+      <Comment/>
 
       {post?.tags && <div className="mt-6">
         <h3 className="text-gray-600 font-medium text-lg">Tags:</h3>
