@@ -64,7 +64,7 @@ const Comment = () => {
       {/* Comment Input Section */}
       <div className="mt-6">
         <textarea
-          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-100"
           rows="3"
           placeholder="Write your comment..."
           value={newComment}
