@@ -1,5 +1,6 @@
 import React from "react"
 import Comment from "../Comment/Comment";
+import LikeShareButtons from "../LikeShare/LikeShare";
 
 const SingleLeft = ({ post }) => {
 
@@ -23,7 +24,11 @@ const SingleLeft = ({ post }) => {
       <div className="font-sans text-md text-gray-700">
         <p className=" my-4">{post?.short_desc}</p>
         <p>{post?.desc}</p>
+        <div className="sm:flex justify-between items-center">
         <p className="font-poppins text-red-500 text-sm mt-1">{post?.readTime}</p>
+        <LikeShareButtons articleTitle={post?.title} articleUrl={window.location.href}/>
+        </div>
+        
       </div>
 
       <Comment/>
