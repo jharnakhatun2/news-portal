@@ -1,9 +1,11 @@
 import React from "react"
 import BottomFooter from "./BottomFooter";
+import NewsletterSubscription from "../NewsletterSubscription/NewsletterSubscription";
 
 const Footer = () => {
   return (
     <div className="border-double border-t-4">
+      <div className="lg:flex">
       <footer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 py-5 md:py-10">
         <nav className="text-sm font-sans">
           <h6 className="text-md font-medium uppercase text-black">News</h6>
@@ -72,6 +74,8 @@ const Footer = () => {
           </div>
         </nav>
       </footer>
+      <NewsletterSubscription/>
+      </div>
       <BottomFooter />
     </div>
   )
