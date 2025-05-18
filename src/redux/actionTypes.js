@@ -1,0 +1,10 @@
+export const Register_Start = "Register_Start";
+export const Register_Success = "Register_Success";
+export const Register_Fail = "Register_Fail";
+export const Login_Start = "Login_Start";
+export const Login_Success = "Login_Success";
+export const Login_Fail = "Login_Fail";
+export const Logout_Start = "Logout_Start";
+export const Logout_Success = "Logout_Success";
+export const Logout_Fail = "Logout_Fail";
+export const Set_User = "Set_User";

@@ -139,7 +139,7 @@ const Register = () => {
               <div className="form-control mt-3">
                 <button className="btn btn-neutral">Create Account</button>
               </div>
-              <small className="text-center text-xs">Already Have An Account ? <Link to='/login' className="text-red-500 link link-hover">Log In</Link></small>
+              <small className="text-center text-xs">Already Have An Account ? <Link to='/auth/login' className="text-red-500 link link-hover">Log In</Link></small>
             </form>
           </div>
           <div className="hidden lg:flex divider divider-horizontal">OR</div>
